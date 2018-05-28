@@ -34,6 +34,18 @@ OS_STK Target2_TASK_STK[Target2_STK_SIZE];
 void Target2_task(void *pdata);
 
 
+//Target3任务
+//设置任务优先级
+#define Target3_TASK_PRIO       			3 
+//设置任务堆栈大小
+#define Target3_STK_SIZE  					  128
+//创建任务堆栈空间	
+OS_STK Target3_TASK_STK[Target3_STK_SIZE];
+//任务函数接口
+void Target3_task(void *pdata);
+
+
+
 	
  int main(void)
  {
@@ -54,6 +66,7 @@ void start_task(void *pdata)
  	OS_ENTER_CRITICAL();			//进入临界区(无法被中断打断)    
  	OSTaskCreate(Target1_task,(void *)0,(OS_STK*)&Target1_TASK_STK[Target1_STK_SIZE-1],Target1_TASK_PRIO);						   
 	OSTaskCreate(Target2_task,(void *)0,(OS_STK*)&Target2_TASK_STK[Target2_STK_SIZE-1],Target2_TASK_PRIO);
+	OSTaskCreate(Target3_task,(void *)0,(OS_STK*)&Target3_TASK_STK[Target3_STK_SIZE-1],Target3_TASK_PRIO);
 	OSTaskSuspend(START_TASK_PRIO);	//挂起起始任务.
 	OS_EXIT_CRITICAL();				//退出临界区(可以被中断打断)
 }

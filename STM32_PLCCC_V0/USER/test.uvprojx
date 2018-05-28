@@ -427,6 +427,11 @@
               <FileType>1</FileType>
               <FilePath>.\Target2.c</FilePath>
             </File>
+            <File>
+              <FileName>plc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\plc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

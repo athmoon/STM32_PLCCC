@@ -1,5 +1,5 @@
 Dependencies for Project 'test', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x584F9F54)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def-I \\Mac\Home\Desktop\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5B079E97)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def-I \\Mac\Home\Desktop\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\HARDWARE\BSP\bsp.h)(0x57FC3EB2)
 I (..\UCOSII\CONFIG\includes.h)(0x57FB4C0C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
@@ -26,7 +26,7 @@ I (..\STM32F10X_FWLIB\inc\stm32f10x_rcc.h)(0x4D783BB4)
 I (..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h)(0x4D783BB4)
 I (..\STM32F10X_FWLIB\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\STM32F10X_FWLIB\inc\misc.h)(0x4D783BB4)
-F (.\LogicTask.c)(0x5B060C1C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def-I \\Mac\Home\Desktop\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\logictask.o --omf_browse ..\obj\logictask.crf --depend ..\obj\logictask.d)
+F (.\LogicTask.c)(0x5B062F63)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def-I \\Mac\Home\Desktop\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\logictask.o --omf_browse ..\obj\logictask.crf --depend ..\obj\logictask.d)
 I (..\HARDWARE\LED\led.h)(0x584F5890)
 I (..\CORE\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -92,6 +92,34 @@ I (..\SYSTEM\sys\sys.h)(0x57E8AA38)
 I (..\HARDWARE\relay\relay.h)(0x584F5890)
 I (..\HARDWARE\display\display.h)(0x584F5890)
 I (..\HARDWARE\rtc\rtc.h)(0x583F8FD8)
+I (..\HARDWARE\def\def.h)(0x58787636)
+F (.\plc.c)(0x5B07A052)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def-I \\Mac\Home\Desktop\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\plc.o --omf_browse ..\obj\plc.crf --depend ..\obj\plc.d)
+I (..\SYSTEM\sys\sys.h)(0x57E8AA38)
+I (..\CORE\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
+I (..\CORE\system_stm32f10x.h)(0x4D783CAA)
+I (..\CORE\stm32f10x_conf.h)(0x5839196A)
+I (..\STM32F10X_FWLIB\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10X_FWLIB\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10X_FWLIB\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10X_FWLIB\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10X_FWLIB\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10X_FWLIB\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10X_FWLIB\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10X_FWLIB\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10X_FWLIB\inc\misc.h)(0x4D783BB4)
+I (..\UCOSII\CONFIG\includes.h)(0x57FB4C0C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53463A44)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
+I (..\UCOSII\CORE\ucos_ii.h)(0x500F7C16)
+I (..\UCOSII\CONFIG\os_cfg.h)(0x57E8AD64)
+I (..\UCOSII\PORT\os_cpu.h)(0x502E57CA)
+I (..\SYSTEM\usart\usart.h)(0x57FCA9AC)
 I (..\HARDWARE\def\def.h)(0x58787636)
 F (..\CORE\core_cm3.c)(0x4C0C587E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def-I \\Mac\Home\Desktop\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\core_cm3.o --omf_browse ..\obj\core_cm3.crf --depend ..\obj\core_cm3.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53463A44)
