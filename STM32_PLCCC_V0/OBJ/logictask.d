@@ -31,6 +31,7 @@
 ..\obj\logictask.o: ..\HARDWARE\usart1\usart1.h
 ..\obj\logictask.o: ..\HARDWARE\usart2\usart2.h
 ..\obj\logictask.o: ..\HARDWARE\usart3\usart3.h
+..\obj\logictask.o: ..\HARDWARE\usart4\usart4.h
 ..\obj\logictask.o: ..\HARDWARE\DMA\dma.h
 ..\obj\logictask.o: ..\HARDWARE\rtc\rtc.h
 ..\obj\logictask.o: ..\HARDWARE\flash\flash.h

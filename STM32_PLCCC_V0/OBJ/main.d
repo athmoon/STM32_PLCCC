@@ -27,3 +27,14 @@
 ..\obj\main.o: ..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h
 ..\obj\main.o: ..\STM32F10X_FWLIB\inc\stm32f10x_usart.h
 ..\obj\main.o: ..\STM32F10X_FWLIB\inc\misc.h
+..\obj\main.o: ..\HARDWARE\LED\led.h
+..\obj\main.o: ..\SYSTEM\usart\usart.h
+..\obj\main.o: ..\HARDWARE\usart1\usart1.h
+..\obj\main.o: ..\HARDWARE\usart2\usart2.h
+..\obj\main.o: ..\HARDWARE\usart3\usart3.h
+..\obj\main.o: ..\HARDWARE\usart4\usart4.h
+..\obj\main.o: ..\HARDWARE\DMA\dma.h
+..\obj\main.o: ..\HARDWARE\rtc\rtc.h
+..\obj\main.o: ..\HARDWARE\flash\flash.h
+..\obj\main.o: ..\HARDWARE\interrupt\interrupt.h
+..\obj\main.o: ..\HARDWARE\def\def.h

@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\STM32F10X_FWLIB\inc;..\UCOSII\CONFIG;..\UCOSII\CORE;..\UCOSII\PORT;..\HARDWARE\LED;..\HARDWARE\BSP;..\HARDWARE\usart1;..\HARDWARE\DMA;..\HARDWARE\usart2;..\HARDWARE\usart3;..\HARDWARE\card;..\HARDWARE\display;..\HARDWARE\meter;..\HARDWARE\relay;..\HARDWARE\interrupt;..\HARDWARE\rtc;..\HARDWARE\flash;..\HARDWARE\gun;..\HARDWARE\def</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\STM32F10X_FWLIB\inc;..\UCOSII\CONFIG;..\UCOSII\CORE;..\UCOSII\PORT;..\HARDWARE\LED;..\HARDWARE\BSP;..\HARDWARE\usart1;..\HARDWARE\DMA;..\HARDWARE\usart2;..\HARDWARE\usart3;..\HARDWARE\card;..\HARDWARE\display;..\HARDWARE\meter;..\HARDWARE\relay;..\HARDWARE\interrupt;..\HARDWARE\rtc;..\HARDWARE\flash;..\HARDWARE\gun;..\HARDWARE\def;..\HARDWARE\usart4</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -506,6 +506,11 @@
               <FileName>usart3.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\usart3\usart3.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\HARDWARE\usart4\usart4.c</FilePath>
             </File>
             <File>
               <FileName>dma.c</FileName>

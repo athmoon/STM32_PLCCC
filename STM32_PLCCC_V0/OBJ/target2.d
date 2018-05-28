@@ -27,7 +27,6 @@
 ..\obj\target2.o: ..\UCOSII\CONFIG\os_cfg.h
 ..\obj\target2.o: ..\UCOSII\PORT\os_cpu.h
 ..\obj\target2.o: ..\SYSTEM\sys\sys.h
-..\obj\target2.o: ..\HARDWARE\relay\relay.h
-..\obj\target2.o: ..\HARDWARE\display\display.h
 ..\obj\target2.o: ..\HARDWARE\rtc\rtc.h
 ..\obj\target2.o: ..\HARDWARE\def\def.h
+..\obj\target2.o: ..\SYSTEM\usart\usart.h

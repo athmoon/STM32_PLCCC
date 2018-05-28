@@ -15,6 +15,7 @@
 "..\obj\usart1.o"
 "..\obj\usart2.o"
 "..\obj\usart3.o"
+"..\obj\usart4.o"
 "..\obj\dma.o"
 "..\obj\interrupt.o"
 "..\obj\rtc.o"

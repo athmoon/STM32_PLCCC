@@ -22,6 +22,7 @@ typedef struct
 void Com1_init(void);
 void Com2_init(void);
 void Com3_init(void);
+void Com4_init(void);
 
 #endif
 
