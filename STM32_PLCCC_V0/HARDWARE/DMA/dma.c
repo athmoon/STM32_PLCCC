@@ -61,6 +61,12 @@ void DMA_Tx_Enable(u8 u)
 			USART_DMACmd(USART3,USART_DMAReq_Tx,ENABLE);
 			DMA_Cmd(DMA1_Channel2, ENABLE);  //使能USART - DMA1 所指示的通道 
 		break;
+		case 4:
+			DMA_Cmd(DMA2_Channel5, DISABLE );  //关闭UART - DMA2 所指示的通道      
+			DMA_SetCurrDataCounter(DMA2_Channel5,DMA1_MEM_LEN);//DMA通道的DMA缓存的大小
+			USART_DMACmd(UART4,USART_DMAReq_Tx,ENABLE);
+			DMA_Cmd(DMA2_Channel5, ENABLE);  //使能USART - DMA2 所指示的通道
+			break;
 		default: break;
 	}	
 	
@@ -109,6 +115,38 @@ void DMA_Rx_Enable(u8 u)
 			USART_DMACmd(USART3,USART_DMAReq_Rx,ENABLE);
 			DMA_Cmd(DMA1_Channel3, ENABLE);  //使能USART - DMA1 所指示的通道 
 		break;
+		case 4:
+			DMA_Cmd(DMA2_Channel3, DISABLE );  //关闭UART - DMA2 所指示的通道      
+			DMA_SetCurrDataCounter(DMA2_Channel3,DMA1_MEM_LEN);//DMA通道的DMA缓存的大小
+			USART_DMACmd(UART4,USART_DMAReq_Rx,ENABLE);
+			DMA_Cmd(DMA2_Channel3, ENABLE);  //使能UART - DMA2 所指示的通道 
+			break;
 		default: break;
 	}	
+}
+
+//DMA数据传送
+void write_dmadata(u8 comNum, u8 len,u8 * buff)
+{
+	switch(comNum)
+	{
+		case 1:
+			DMA_MP_Config(DMA1_Channel4,(u32)&USART1->DR,(u32)buff,len);
+			DMA_Tx_Enable(1);
+			OSTimeDlyHMSM(0, 0,1,0);
+			break;
+		case 2:
+			DMA_MP_Config(DMA1_Channel7,(u32)&USART2->DR,(u32)buff,len);
+			DMA_Tx_Enable(2);
+			break;
+		case 3:
+			DMA_MP_Config(DMA1_Channel2,(u32)&USART3->DR,(u32)buff,len);
+			DMA_Tx_Enable(3);
+			break;
+		case 4:
+			DMA_MP_Config(DMA2_Channel5,(u32)&UART4->DR,(u32)buff,len);
+			DMA_Tx_Enable(4);
+			break;
+		default: break;
+	}		
 }

@@ -23,7 +23,7 @@ void Target3_task(void *pdata)
 		OSTimeSet(0);
 		while(1)
 		{
-			OSTimeDlyHMSM(0, 0, 0, 10); //任务调度延时
+			OSTimeDlyHMSM(0, 0, 0, 100); //任务调度延时
 			// 等待串口4信号量
 			OSSemPend(com4.sem_DMA_RX,DEV_TIMEOUT_10,&err);
 			if(err == OS_ERR_NONE){

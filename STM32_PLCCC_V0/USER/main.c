@@ -23,6 +23,15 @@ extern u8 DMA_TX_BUF3[DMA_TX_BUFF_LEN];
 extern u8 DMA_RX_BUF4[DMA_RX_BUFF_LEN];
 extern u8 DMA_TX_BUF4[DMA_TX_BUFF_LEN];
 extern USART_COM com1,com2,com3,com4;
+
+extern OS_EVENT * Com1_rx_sem;
+extern OS_EVENT * Com1_tx_sem;
+extern OS_EVENT * Com2_rx_sem;
+extern OS_EVENT * Com2_tx_sem;
+extern OS_EVENT * Com4_rx_sem;
+extern OS_EVENT * Com4_tx_sem;
+void OSSem_init(void);
+
 void usart_init(void);
 
 /////////////////////////UCOSII任务堆栈设置///////////////////////////////////
@@ -69,6 +78,15 @@ OS_STK Target3_TASK_STK[Target3_STK_SIZE];
 void Target3_task(void *pdata);
 
 
+//Target4任务
+//设置任务优先级
+#define Target4_TASK_PRIO       			4 
+//设置任务堆栈大小
+#define Target4_STK_SIZE  					  128
+//创建任务堆栈空间	
+OS_STK Target4_TASK_STK[Target4_STK_SIZE];
+//任务函数接口
+void Target4_task(void *pdata);
 
 	
  int main(void)
@@ -89,14 +107,27 @@ void start_task(void *pdata)
 	OSStatInit();					//初始化统计任务.这里会延时1秒钟左右	
 	
 	//硬件初始化
-	usart_init();//串口初始化
 	
- 	OS_ENTER_CRITICAL();			//进入临界区(无法被中断打断)    
+ 	OS_ENTER_CRITICAL();			//进入临界区(无法被中断打断)  
  	OSTaskCreate(Target1_task,(void *)0,(OS_STK*)&Target1_TASK_STK[Target1_STK_SIZE-1],Target1_TASK_PRIO);						   
 	OSTaskCreate(Target2_task,(void *)0,(OS_STK*)&Target2_TASK_STK[Target2_STK_SIZE-1],Target2_TASK_PRIO);
 	OSTaskCreate(Target3_task,(void *)0,(OS_STK*)&Target3_TASK_STK[Target3_STK_SIZE-1],Target3_TASK_PRIO);
+	OSTaskCreate(Target4_task,(void *)0,(OS_STK*)&Target4_TASK_STK[Target4_STK_SIZE-1],Target4_TASK_PRIO);
+	
+	usart_init();//串口初始化
+	OSSem_init();//信号量初始化
+	
 	OSTaskSuspend(START_TASK_PRIO);	//挂起起始任务.
 	OS_EXIT_CRITICAL();				//退出临界区(可以被中断打断)
+}
+
+void OSSem_init(void) {
+	Com1_rx_sem = OSSemCreate(0);
+	Com1_tx_sem = OSSemCreate(0);
+	Com2_rx_sem = OSSemCreate(0);
+	Com2_tx_sem = OSSemCreate(0);
+	Com4_rx_sem = OSSemCreate(0);
+	Com4_tx_sem = OSSemCreate(0);
 }
 
 void usart_init(void) {
