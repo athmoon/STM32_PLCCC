@@ -23,3 +23,14 @@
 ..\obj\bsp.o: ..\HARDWARE\interrupt\interrupt.h
 ..\obj\bsp.o: ..\HARDWARE\rtc\rtc.h
 ..\obj\bsp.o: ..\HARDWARE\gun\gun.h
+..\obj\bsp.o: ..\HARDWARE\PLCmodule\plcmodule.h
+..\obj\bsp.o: ..\UCOSII\CONFIG\includes.h
+..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\bsp.o: ..\UCOSII\CORE\ucos_ii.h
+..\obj\bsp.o: ..\UCOSII\CONFIG\includes.h
+..\obj\bsp.o: ..\UCOSII\CONFIG\os_cfg.h
+..\obj\bsp.o: ..\UCOSII\PORT\os_cpu.h

@@ -37,3 +37,4 @@
 ..\obj\logictask.o: ..\HARDWARE\flash\flash.h
 ..\obj\logictask.o: ..\HARDWARE\interrupt\interrupt.h
 ..\obj\logictask.o: ..\HARDWARE\def\def.h
+..\obj\logictask.o: ..\HARDWARE\PLCmodule\plcmodule.h

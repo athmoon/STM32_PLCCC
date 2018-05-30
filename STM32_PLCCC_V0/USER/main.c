@@ -141,12 +141,12 @@ void usart_init(void) {
 	Com3_init();
 	Com4_init();
 	//dma接收初始化
-	DMA_PM_Config(DMA1_Channel5,(u32)&USART1->DR,(u32)DMA_RX_BUF1,DMA_RX_BUFF_LEN);
+	DMA_PM_Config(DMA1_Channel5,(u32)&USART1->DR,(u32)DMA_RX_BUF1, DMA_RX_BUFF_LEN);
 	DMA_Rx_Enable(1);
-	DMA_PM_Config(DMA1_Channel6,(u32)&USART2->DR,(u32)com2.DMA_RX_BUF ,DMA_RX_BUFF_LEN);
+	DMA_PM_Config(DMA1_Channel6,(u32)&USART2->DR,(u32)com2.DMA_RX_BUF, DMA_RX_BUFF_LEN);
 	DMA_Rx_Enable(2);
-	DMA_PM_Config(DMA1_Channel3,(u32)&USART3->DR,(u32)com3.DMA_RX_BUF ,DMA_RX_BUFF_LEN);
+	DMA_PM_Config(DMA1_Channel3,(u32)&USART3->DR,(u32)com3.DMA_RX_BUF, DMA_RX_BUFF_LEN);
 	DMA_Rx_Enable(3);
-	DMA_PM_Config(DMA2_Channel3,(u32)&UART4->DR,(u32)com4.DMA_RX_BUF,DMA_RX_BUFF_LEN);
+	DMA_PM_Config(DMA2_Channel3,(u32)&UART4->DR,(u32)com4.DMA_RX_BUF, DMA_RX_BUFF_LEN);
 	DMA_Rx_Enable(4);
 }

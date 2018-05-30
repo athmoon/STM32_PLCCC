@@ -76,10 +76,11 @@ void DMA_Tx_Enable(u8 u)
 void DMA_PM_Config(DMA_Channel_TypeDef* DMA_CHx,u32 cpar,u32 cmar,u16 cndtr)
 {
 	DMA_InitTypeDef DMA_InitStructure;
- 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);	
+ 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA2, ENABLE);
 	DMA1_MEM_LEN=cndtr;
   DMA_DeInit(DMA_CHx);  
-	DMA_InitStructure.DMA_PeripheralBaseAddr = cpar;  
+	DMA_InitStructure.DMA_PeripheralBaseAddr = cpar;
 	DMA_InitStructure.DMA_MemoryBaseAddr = cmar;  
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;  
 	DMA_InitStructure.DMA_BufferSize = cndtr;  
@@ -90,7 +91,7 @@ void DMA_PM_Config(DMA_Channel_TypeDef* DMA_CHx,u32 cpar,u32 cmar,u16 cndtr)
 	DMA_InitStructure.DMA_Mode = DMA_Mode_Normal; 
 	DMA_InitStructure.DMA_Priority = DMA_Priority_High;  
 	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;  
-	DMA_Init(DMA_CHx, &DMA_InitStructure);  	
+	DMA_Init(DMA_CHx, &DMA_InitStructure);
 } 
 //开启DMA接收通道
 void DMA_Rx_Enable(u8 u)

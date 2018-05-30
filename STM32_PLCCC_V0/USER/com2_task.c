@@ -13,14 +13,14 @@ void Target4_task(void *pdata)
 	u8 err = 0;
 	while(1)
 	{
-		OSTimeDlyHMSM(0, 0, 0, 10);
+		OSTimeDlyHMSM(0, 0, 0, 1);
 		
 		OSSemPend(com2.sem_DMA_RX,DEV_TIMEOUT_10,&err);
 		if(err == OS_ERR_NONE){
 			OSSemPost(Com2_rx_sem);
 		}
 		
-		OSSemPend(Com2_tx_sem, 0,&err);
+		OSSemPend(Com2_tx_sem, DEV_TIMEOUT_10,&err);
 		if(err == OS_ERR_NONE){
 			send_to_com2(com2.DMA_TX_BUF, com2.lenSend);
 		}

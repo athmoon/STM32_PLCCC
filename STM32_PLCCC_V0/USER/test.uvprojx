@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\STM32F10X_FWLIB\inc;..\UCOSII\CONFIG;..\UCOSII\CORE;..\UCOSII\PORT;..\HARDWARE\LED;..\HARDWARE\BSP;..\HARDWARE\usart1;..\HARDWARE\DMA;..\HARDWARE\usart2;..\HARDWARE\usart3;..\HARDWARE\card;..\HARDWARE\display;..\HARDWARE\meter;..\HARDWARE\relay;..\HARDWARE\interrupt;..\HARDWARE\rtc;..\HARDWARE\flash;..\HARDWARE\gun;..\HARDWARE\def;..\HARDWARE\usart4</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\STM32F10X_FWLIB\inc;..\UCOSII\CONFIG;..\UCOSII\CORE;..\UCOSII\PORT;..\HARDWARE\LED;..\HARDWARE\BSP;..\HARDWARE\usart1;..\HARDWARE\DMA;..\HARDWARE\usart2;..\HARDWARE\usart3;..\HARDWARE\card;..\HARDWARE\display;..\HARDWARE\meter;..\HARDWARE\relay;..\HARDWARE\interrupt;..\HARDWARE\rtc;..\HARDWARE\flash;..\HARDWARE\gun;..\HARDWARE\def;..\HARDWARE\usart4;..\HARDWARE\PLCmodule</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -443,11 +443,6 @@
           <GroupName>CORE</GroupName>
           <Files>
             <File>
-              <FileName>core_cm3.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CORE\core_cm3.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\CORE\stm32f10x_it.c</FilePath>
@@ -467,6 +462,11 @@
         <Group>
           <GroupName>SYSTEM</GroupName>
           <Files>
+            <File>
+              <FileName>core_cm3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CORE\core_cm3.c</FilePath>
+            </File>
             <File>
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
@@ -536,6 +536,11 @@
               <FileName>flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\flash\flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>plcmodule.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\HARDWARE\PLCmodule\plcmodule.c</FilePath>
             </File>
           </Files>
         </Group>

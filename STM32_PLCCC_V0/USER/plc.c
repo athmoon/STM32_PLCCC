@@ -10,37 +10,39 @@
 #include "def.h"
 
 extern USART_COM com4;
+extern OS_EVENT * Com4_rx_sem;
+extern OS_EVENT * Com4_tx_sem;
 
-void send_to_mainloop(void);
+void send_to_com4(u8 *StrBuf, u8 bufLen);
 
 void Target3_task(void *pdata)
 {	
 		u8 err = 0;
 		
-	
-		OSTimeDlyHMSM(0, 0, 1, 0);//等待设备稳定
-		
-		OSTimeSet(0);
+		//OSTimeSet(0);
 		while(1)
 		{
-			OSTimeDlyHMSM(0, 0, 0, 100); //任务调度延时
+			OSTimeDlyHMSM(0, 0, 0, 1); //任务调度延时
+			
 			// 等待串口4信号量
 			OSSemPend(com4.sem_DMA_RX,DEV_TIMEOUT_10,&err);
 			if(err == OS_ERR_NONE){
-				send_to_mainloop();
+				OSSemPost(Com4_rx_sem);
+			}
+			
+			OSSemPend(Com4_tx_sem, DEV_TIMEOUT_10,&err);
+			if(err == OS_ERR_NONE){
+				send_to_com4(com4.DMA_TX_BUF, com4.lenSend);
 			}
 			
 		}
 }
 
-void send_to_com4(char *StrBuf) {
-	u32 i;
-	for (i = 0; i < strlen(StrBuf); i++) {
+void send_to_com4(u8 *StrBuf, u8 bufLen) {
+	u8 i;
+	for (i = 0; i < bufLen; i++) {
 		USART_SendData(UART4, StrBuf[i]);
 		while(USART_GetFlagStatus(UART4, USART_FLAG_TC) == RESET){}//等待传送结束
 	}
 }
 
-void send_to_mainloop(void) {
-	
-}
