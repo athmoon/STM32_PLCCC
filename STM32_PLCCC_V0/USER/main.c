@@ -149,4 +149,9 @@ void usart_init(void) {
 	DMA_Rx_Enable(3);
 	DMA_PM_Config(DMA2_Channel3,(u32)&UART4->DR,(u32)com4.DMA_RX_BUF, DMA_RX_BUFF_LEN);
 	DMA_Rx_Enable(4);
+	// 先读一下标志位，防止第一帧数据的首个字节发送丢失
+	USART_GetFlagStatus(USART1, USART_FLAG_TC);
+	USART_GetFlagStatus(USART2, USART_FLAG_TC);
+	USART_GetFlagStatus(USART3, USART_FLAG_TC);
+	USART_GetFlagStatus(UART4, USART_FLAG_TC);
 }
