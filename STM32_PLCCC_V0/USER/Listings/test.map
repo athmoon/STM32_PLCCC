@@ -1219,12 +1219,12 @@ Image Symbol Table
     i.send_to_com4                           0x08002a08   Section        0  plc.o(i.send_to_com4)
     i.start_task                             0x08002a38   Section        0  main.o(i.start_task)
     i.uart4_init                             0x08002ab0   Section        0  usart4.o(i.uart4_init)
-    i.usart1_init                            0x08002b68   Section        0  usart1.o(i.usart1_init)
-    i.usart2_init                            0x08002c0c   Section        0  usart2.o(i.usart2_init)
-    i.usart3_init                            0x08002cb0   Section        0  usart3.o(i.usart3_init)
-    i.usart_init                             0x08002d7c   Section        0  main.o(i.usart_init)
-    .constdata                               0x08002e54   Section       24  rtc.o(.constdata)
-    .constdata                               0x08002e6c   Section      256  os_core.o(.constdata)
+    i.usart1_init                            0x08002b6c   Section        0  usart1.o(i.usart1_init)
+    i.usart2_init                            0x08002c10   Section        0  usart2.o(i.usart2_init)
+    i.usart3_init                            0x08002cb4   Section        0  usart3.o(i.usart3_init)
+    i.usart_init                             0x08002d80   Section        0  main.o(i.usart_init)
+    .constdata                               0x08002e58   Section       24  rtc.o(.constdata)
+    .constdata                               0x08002e70   Section      256  os_core.o(.constdata)
     .data                                    0x20000000   Section       96  logictask.o(.data)
     .data                                    0x20000060   Section       20  system_stm32f10x.o(.data)
     .data                                    0x20000074   Section        4  delay.o(.data)
@@ -1542,16 +1542,16 @@ Image Symbol Table
     send_to_com2                             0x080029d9   Thumb Code    42  com2_task.o(i.send_to_com2)
     send_to_com4                             0x08002a09   Thumb Code    42  plc.o(i.send_to_com4)
     start_task                               0x08002a39   Thumb Code    88  main.o(i.start_task)
-    uart4_init                               0x08002ab1   Thumb Code   174  usart4.o(i.uart4_init)
-    usart1_init                              0x08002b69   Thumb Code   154  usart1.o(i.usart1_init)
-    usart2_init                              0x08002c0d   Thumb Code   156  usart2.o(i.usart2_init)
-    usart3_init                              0x08002cb1   Thumb Code   196  usart3.o(i.usart3_init)
-    usart_init                               0x08002d7d   Thumb Code   174  main.o(i.usart_init)
-    table_week                               0x08002e54   Data          12  rtc.o(.constdata)
-    mon_table                                0x08002e60   Data          12  rtc.o(.constdata)
-    OSUnMapTbl                               0x08002e6c   Data         256  os_core.o(.constdata)
-    Region$$Table$$Base                      0x08002f6c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08002f8c   Number         0  anon$$obj.o(Region$$Table)
+    uart4_init                               0x08002ab1   Thumb Code   178  usart4.o(i.uart4_init)
+    usart1_init                              0x08002b6d   Thumb Code   154  usart1.o(i.usart1_init)
+    usart2_init                              0x08002c11   Thumb Code   156  usart2.o(i.usart2_init)
+    usart3_init                              0x08002cb5   Thumb Code   196  usart3.o(i.usart3_init)
+    usart_init                               0x08002d81   Thumb Code   174  main.o(i.usart_init)
+    table_week                               0x08002e58   Data          12  rtc.o(.constdata)
+    mon_table                                0x08002e64   Data          12  rtc.o(.constdata)
+    OSUnMapTbl                               0x08002e70   Data         256  os_core.o(.constdata)
+    Region$$Table$$Base                      0x08002f70   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08002f90   Number         0  anon$$obj.o(Region$$Table)
     Com1_rx_sem                              0x20000000   Data           4  logictask.o(.data)
     Com1_tx_sem                              0x20000004   Data           4  logictask.o(.data)
     Com2_rx_sem                              0x20000008   Data           4  logictask.o(.data)
@@ -1627,9 +1627,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000131
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003068, Max: 0x00040000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000306c, Max: 0x00040000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00002f8c, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00002f90, Max: 0x00040000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1845,14 +1845,14 @@ Memory Map of the image
     0x080029d8   0x00000030   Code   RO          237    i.send_to_com2      com2_task.o
     0x08002a08   0x00000030   Code   RO          218    i.send_to_com4      plc.o
     0x08002a38   0x00000078   Code   RO            3    i.start_task        main.o
-    0x08002ab0   0x000000b8   Code   RO          538    i.uart4_init        usart4.o
-    0x08002b68   0x000000a4   Code   RO          469    i.usart1_init       usart1.o
-    0x08002c0c   0x000000a4   Code   RO          488    i.usart2_init       usart2.o
-    0x08002cb0   0x000000cc   Code   RO          509    i.usart3_init       usart3.o
-    0x08002d7c   0x000000d8   Code   RO            4    i.usart_init        main.o
-    0x08002e54   0x00000018   Data   RO          628    .constdata          rtc.o
-    0x08002e6c   0x00000100   Data   RO         1826    .constdata          os_core.o
-    0x08002f6c   0x00000020   Data   RO         2684    Region$$Table       anon$$obj.o
+    0x08002ab0   0x000000bc   Code   RO          538    i.uart4_init        usart4.o
+    0x08002b6c   0x000000a4   Code   RO          469    i.usart1_init       usart1.o
+    0x08002c10   0x000000a4   Code   RO          488    i.usart2_init       usart2.o
+    0x08002cb4   0x000000cc   Code   RO          509    i.usart3_init       usart3.o
+    0x08002d80   0x000000d8   Code   RO            4    i.usart_init        main.o
+    0x08002e58   0x00000018   Data   RO          628    .constdata          rtc.o
+    0x08002e70   0x00000100   Data   RO         1826    .constdata          os_core.o
+    0x08002f70   0x00000020   Data   RO         2684    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000020c8, Max: 0x0000c000, ABSOLUTE)
@@ -1920,10 +1920,10 @@ Image component sizes
        288         24          0          0          0       1250   usart1.o
        308         24          0          0          0       1270   usart2.o
        336         22          0          0          0       1278   usart3.o
-       308         24          0          0          0       1328   usart4.o
+       312         24          0          0          0       1328   usart4.o
 
     ----------------------------------------------------------------------
-     11046       1284        616        220       8076     367565   Object Totals
+     11050       1284        616        220       8076     367565   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         28          0          0          1          0          0   (incl. Padding)
 
@@ -1974,15 +1974,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     11556       1300        616        220       8172     360797   Grand Totals
-     11556       1300        616        220       8172     360797   ELF Image Totals
-     11556       1300        616        220          0          0   ROM Totals
+     11560       1300        616        220       8172     360797   Grand Totals
+     11560       1300        616        220       8172     360797   ELF Image Totals
+     11560       1300        616        220          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                12172 (  11.89kB)
+    Total RO  Size (Code + RO Data)                12176 (  11.89kB)
     Total RW  Size (RW Data + ZI Data)              8392 (   8.20kB)
-    Total ROM Size (Code + RO Data + RW Data)      12392 (  12.10kB)
+    Total ROM Size (Code + RO Data + RW Data)      12396 (  12.11kB)
 
 ==============================================================================
 
