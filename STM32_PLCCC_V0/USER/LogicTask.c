@@ -12,6 +12,7 @@
 #include "interrupt.h"
 #include "def.h"
 #include "plcmodule.h"
+#include "_3762.h"
 
 typedef enum {
 	WorkStatus_Starting = 1,
@@ -19,7 +20,18 @@ typedef enum {
 	WorkStatus_Idle,
 	WorkStatus_Error,
 	WorkStatus_Test,
+	WorkStatus_SonTest,
 } WorkStatus;
+
+typedef enum {
+	ConfigStatus_link,
+	ConfigStatus_datainit,
+	ConfigStatus_addrinit,
+	ConfigStatus_devinit,
+	ConfigStatus_readData,
+} ConfigStatus;
+
+ConfigStatus conf_status;
 
 extern calendar STM32_calendar;
 extern USART_COM com1,com2,com3,com4;
@@ -33,26 +45,26 @@ OS_EVENT * Com4_tx_sem;
 
 WorkStatus workStatus = WorkStatus_Starting;
 
-u8 plc_cmd[] = {0x68, 0x38, 0x00, 0xC1, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x03, 0x02, 0x01,\
-0xB1, 0x37, 0x01, 0x01, 0x00, 0x00, 0x5A, 0x5A, 0x00, 0x2C, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00,\
-0x00, 0x00, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x13, 0x03, 0x21, 0x13, 0x03, 0x21, 0x46, 0x4D,\
-0x4A, 0x5A, 0x20, 0x05, 0x14, 0x02, 0x00, 0x01, 0x80, 0x38, 0x16};
-u8 plc_cmd_reply[] = {0x68, 0x0F, 0x00, 0x01, 0x00, 0x00, 0x28, 0x32, 0x00, 0x00, 0x00, 0x01, 0x00, 0x5C, 0x16};
+u8 STATUS_NUM[] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x10};
 
 void device_test(void);
 u8 receive_msg_from_com1(INT32U timeout);
 u8 receive_msg_from_com2(INT32U timeout);
 u8 receive_msg_from_com4(INT32U timeout);
+void send_msg_to_com1(u8* msg, u8 len);
 
+u8 son_test(INT32U timeout);
 void Target1_task(void *pdata)
 {
+	
+	u8 err = 0;
+	u8 PLC_STATE0_Count = 0;
 	
 	OSTimeDlyHMSM(0, 0,1,0);//等待设备稳定
 	
 	RTC_Init();
 	
 	//STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)ElePrice,12);
-	//STMFLASH_Read(FLASH_SAVE_ADDR,(u16*)ElePrice,12);
 
 	// 设备自检
 	device_test();
@@ -64,7 +76,16 @@ void Target1_task(void *pdata)
 	{
 		OSTimeDlyHMSM(0, 0, 0, 1); //任务调度延时
 		
-		
+		// 判断节点连接状态
+		if (PLC_STATE0 == 1) {//plc模块未插入
+			PLC_STATE0_Count++;// 如果节点断开连接，计次++
+		} else {
+			PLC_STATE0_Count = 0;
+		}
+		// 如果断开连接超过n次，判断节点断开连接，进入异常等待或启动状态
+		if (PLC_STATE0 >= 30) {
+			// 连接断开超时
+		}
 		// 进入状态机
 		switch(workStatus) {
 			case WorkStatus_Starting://启动状态
@@ -72,17 +93,53 @@ void Target1_task(void *pdata)
 					PLC_RST(0);// 保持最少10毫秒复位状态，然后置为高电平
 					OSTimeDlyHMSM(0, 0, 0, 50);
 					PLC_RST(1);
-					workStatus = WorkStatus_Test;// 模块连接、复位成功，转入测试
-					// workStatus = WorkStatus_Config;// 模块连接成功，转入信息核对，主节点配置
+					workStatus = WorkStatus_Config;// 模块连接成功，转入信息核对，主节点配置
+					conf_status = ConfigStatus_link;
 				}
 				break;
 			case WorkStatus_Config://主节点配置状态
-				// 1、判断是否有AFN03F10主动上行数据,如果有，对数据进行解析
-				// 1.1、
-				// 2、如果没有，等待是否超过20s，超过20s主动发送查询命令
+				
+				switch (conf_status) {
+					case ConfigStatus_link:
+						// 1、判断是否有AFN03F10主动上行数据,如果有，对数据进行解析
+						if (!receive_msg_from_com4(DEV_TIMEOUT_10)) goto TIMEOUTCHECK;//无数据
+						if (read_3762_str(com4.DMA_RX_BUF, com4.lenRec)) goto TIMEOUTCHECK;//校验错
+						if (!(readResult.AFN_code == AFN03 && readResult.F_code == F10)) goto TIMEOUTCHECK;//非AFN03F10指令
+						// 1.1、判断flash中存储的主节点信息是否与当前主节点上报的信息相同
+						if (readResult.action == Null_Action) {
+							// 如果相同，不做任何处理，进入节点信息查询状态
+							conf_status = ConfigStatus_readData;
+						} else if (readResult.action == Hardware_Init) {// 如果不相同进行初始化操作
+							conf_status = ConfigStatus_addrinit;
+						}
+						
+						TIMEOUTCHECK:
+						if (OSTimeGet() >= 20) {//超过20秒，主动下发AFN03F10
+							
+						}
+						break;
+						
+					case ConfigStatus_addrinit:// 地址初始化
+						// 1、发送设置主节点地址指令，将主节点地址设置为1
+						// 2、等待主节点回复，若无回复超过预设时间，重复发送该指令
+						// 3、主节点回复成功，进入数据区初始化
+						break;
+					
+					case ConfigStatus_datainit:// 数据区初始化
+						break;
+					
+					case ConfigStatus_readData:// 读节点数据
+						
+						break;
+						
+					default:
+						break;
+				}
+				
 				break;
 			case WorkStatus_Idle://空闲状态
-				// 
+				// 如果收到载波主节点上行帧，进行解析，如果是主动上行帧，进行回复；如果是被动上行帧，将结果返回给上位机
+				// 如果收到上位机的指令，按照376.2透传转发指令，下发给载波主节点
 				break;
 			case WorkStatus_Error://异常状态
 				break;
@@ -91,7 +148,8 @@ void Target1_task(void *pdata)
 				receive_msg_from_com1(DEV_TIMEOUT_10);
 				
 				// 如果接收到串口4的数据，转发给串口2
-				receive_msg_from_com4(DEV_TIMEOUT_10);
+				// receive_msg_from_com4(DEV_TIMEOUT_10);
+				receive_msg_from_com2(DEV_TIMEOUT_10);
 				break;
 			default:
 				break;
@@ -127,9 +185,9 @@ u8 receive_msg_from_com2(INT32U timeout) {
 	
 	OSSemPend(Com2_rx_sem, timeout, &err);// 读取信号量
 	if (err == OS_ERR_NONE) {
-		memcpy(com4.DMA_TX_BUF, com2.DMA_RX_BUF, com2.lenRec);// 将串口2接受缓冲区的数据拷贝到串口4的发送缓冲区
-		com4.lenSend = com2.lenRec;
-		OSSemPost(Com4_tx_sem);// 发送消息给串口4，开始发送数据。
+		memcpy(com1.DMA_TX_BUF, com2.DMA_RX_BUF, com2.lenRec);// 将串口2接受缓冲区的数据拷贝到串口4的发送缓冲区
+		com1.lenSend = com2.lenRec;
+		OSSemPost(Com1_tx_sem);// 发送消息给串口4，开始发送数据。
 		return 1;
 	} else {
 		return 0;
@@ -143,23 +201,18 @@ u8 receive_msg_from_com4(INT32U timeout) {
 	
 	OSSemPend(Com4_rx_sem, timeout, &err);// 读取信号量
 	if (err == OS_ERR_NONE) {
-
-//		if (memcmp(com4.DMA_RX_BUF, plc_cmd, com4.lenRec) == 0) {
-//			com4.lenSend = plc_cmd_reply[1] + (plc_cmd_reply[2]<<8);
-//			memcpy(com4.DMA_TX_BUF, plc_cmd_reply, com4.lenSend);
-//			OSSemPost(Com4_tx_sem);// 发送消息给串口4，开始发送数据。
-//			
-//			com1.lenSend = plc_cmd_reply[1] + (plc_cmd_reply[2]<<8);
-//			memcpy(com1.DMA_TX_BUF, plc_cmd_reply, com1.lenSend);
-//			OSSemPost(Com1_tx_sem);// 发送消息给串口1，开始发送数据。
-//		} else {
-			memcpy(com1.DMA_TX_BUF, com4.DMA_RX_BUF, com4.lenRec);// 将串口4接受缓冲区的数据拷贝到串口2的发送缓冲区
+			memcpy(com1.DMA_TX_BUF, com4.DMA_RX_BUF, com4.lenRec);// 将串口4接受缓冲区的数据拷贝到串口1的发送缓冲区
 			com1.lenSend = com4.lenRec;
 			OSSemPost(Com1_tx_sem);// 发送消息给串口1，开始发送数据。
-//		}
 		return 1;
 	} else {
 		return 0;
 	}
 }
 
+// 发送信息给串口1
+void send_msg_to_com1(u8* msg, u8 len) {
+	memcpy(com1.DMA_TX_BUF, msg, len);// 将串口4接受缓冲区的数据拷贝到串口1的发送缓冲区
+	com1.lenSend = len;
+	OSSemPost(Com1_tx_sem);// 发送消息给串口1，开始发送数据。
+}
