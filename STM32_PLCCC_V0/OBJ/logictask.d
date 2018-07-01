@@ -2,7 +2,7 @@
 ..\obj\logictask.o: ..\HARDWARE\LED\led.h
 ..\obj\logictask.o: ..\CORE\stm32f10x.h
 ..\obj\logictask.o: ..\CORE\core_cm3.h
-..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
 ..\obj\logictask.o: ..\CORE\system_stm32f10x.h
 ..\obj\logictask.o: ..\CORE\stm32f10x_conf.h
 ..\obj\logictask.o: ..\STM32F10X_FWLIB\inc\stm32f10x_bkp.h
@@ -19,11 +19,11 @@
 ..\obj\logictask.o: ..\SYSTEM\sys\sys.h
 ..\obj\logictask.o: ..\SYSTEM\usart\usart.h
 ..\obj\logictask.o: ..\UCOSII\CONFIG\includes.h
-..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
-..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdio.h
+..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
+..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\ctype.h
+..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+..\obj\logictask.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdarg.h
 ..\obj\logictask.o: ..\UCOSII\CORE\ucos_ii.h
 ..\obj\logictask.o: ..\UCOSII\CONFIG\includes.h
 ..\obj\logictask.o: ..\UCOSII\CONFIG\os_cfg.h

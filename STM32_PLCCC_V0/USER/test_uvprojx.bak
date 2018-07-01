@@ -12,16 +12,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>STM32F103RB</Device>
+          <Device>STM32F103RC</Device>
           <Vendor>STMicroelectronics</Vendor>
           <PackID>Keil.STM32F1xx_DFP.2.1.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
-          <Cpu>IROM(0x08000000,0x20000) IRAM(0x20000000,0x5000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
+          <Cpu>IROM(0x08000000,0x40000) IRAM(0x20000000,0xC000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F10x_128 -FS08000000 -FL020000 -FP0($$Device:STM32F103RB$Flash/STM32F10x_128.FLM))</FlashDriverDll>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F10x_512 -FS08000000 -FL080000 -FP0($$Device:STM32F103RC$Flash\STM32F10x_512.FLM))</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:STM32F103RB$Device/Include/stm32f10x.h</RegisterFile>
+          <RegisterFile>$$Device:STM32F103RC$Device\Include\stm32f10x.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -31,7 +31,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:STM32F103RB$SVD/STM32F103xx.svd</SFDFile>
+          <SFDFile>$$Device:STM32F103RC$SVD\STM32F103xx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
@@ -84,6 +84,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopA1X>0</nStopA1X>
+            <nStopA2X>0</nStopA2X>
           </AfterMake>
           <SelectedForBatchBuild>0</SelectedForBatchBuild>
           <SVCSIdString></SVCSIdString>
@@ -280,12 +282,12 @@
               <IRAM>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0x5000</Size>
+                <Size>0xc000</Size>
               </IRAM>
               <IROM>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x20000</Size>
+                <Size>0x40000</Size>
               </IROM>
               <XRAM>
                 <Type>0</Type>
@@ -310,7 +312,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x20000</Size>
+                <Size>0x40000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -335,7 +337,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0x5000</Size>
+                <Size>0xc000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -361,11 +363,13 @@
             <uSurpInc>0</uSurpInc>
             <uC99>0</uC99>
             <useXO>0</useXO>
+            <v6Lang>0</v6Lang>
+            <v6LangP>0</v6LangP>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
+              <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\STM32F10X_FWLIB\inc;..\UCOSII\CONFIG;..\UCOSII\CORE;..\UCOSII\PORT;..\HARDWARE\LED;..\HARDWARE\BSP;..\HARDWARE\usart1;..\HARDWARE\DMA;..\HARDWARE\usart2;..\HARDWARE\usart3;..\HARDWARE\card;..\HARDWARE\display;..\HARDWARE\meter;..\HARDWARE\relay;..\HARDWARE\interrupt;..\HARDWARE\rtc;..\HARDWARE\flash;..\HARDWARE\gun;..\HARDWARE\def</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\STM32F10X_FWLIB\inc;..\UCOSII\CONFIG;..\UCOSII\CORE;..\UCOSII\PORT;..\HARDWARE\LED;..\HARDWARE\BSP;..\HARDWARE\usart1;..\HARDWARE\DMA;..\HARDWARE\usart2;..\HARDWARE\usart3;..\HARDWARE\card;..\HARDWARE\display;..\HARDWARE\meter;..\HARDWARE\relay;..\HARDWARE\interrupt;..\HARDWARE\rtc;..\HARDWARE\flash;..\HARDWARE\gun;..\HARDWARE\def;..\HARDWARE\usart4;..\HARDWARE\PLCmodule</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -423,21 +427,26 @@
               <FileType>1</FileType>
               <FilePath>.\Target2.c</FilePath>
             </File>
+            <File>
+              <FileName>plc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\plc.c</FilePath>
+            </File>
+            <File>
+              <FileName>com2_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\com2_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>_3762.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\_3762.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>CORE</GroupName>
           <Files>
-            <File>
-              <FileName>core_cm3.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CORE\core_cm3.c</FilePath>
-            </File>
-            <File>
-              <FileName>startup_stm32f10x_md.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\CORE\startup_stm32f10x_md.s</FilePath>
-            </File>
             <File>
               <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
@@ -448,11 +457,21 @@
               <FileType>1</FileType>
               <FilePath>..\CORE\system_stm32f10x.c</FilePath>
             </File>
+            <File>
+              <FileName>startup_stm32f10x_hd.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\CORE\startup_stm32f10x_hd.s</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>SYSTEM</GroupName>
           <Files>
+            <File>
+              <FileName>core_cm3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CORE\core_cm3.c</FilePath>
+            </File>
             <File>
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
@@ -499,29 +518,14 @@
               <FilePath>..\HARDWARE\usart3\usart3.c</FilePath>
             </File>
             <File>
+              <FileName>usart4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\HARDWARE\usart4\usart4.c</FilePath>
+            </File>
+            <File>
               <FileName>dma.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\DMA\dma.c</FilePath>
-            </File>
-            <File>
-              <FileName>card.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\card\card.c</FilePath>
-            </File>
-            <File>
-              <FileName>display.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\display\display.c</FilePath>
-            </File>
-            <File>
-              <FileName>meter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\meter\meter.c</FilePath>
-            </File>
-            <File>
-              <FileName>relay.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\relay\relay.c</FilePath>
             </File>
             <File>
               <FileName>interrupt.c</FileName>
@@ -539,9 +543,9 @@
               <FilePath>..\HARDWARE\flash\flash.c</FilePath>
             </File>
             <File>
-              <FileName>gun.c</FileName>
+              <FileName>plcmodule.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\gun\gun.c</FilePath>
+              <FilePath>\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\HARDWARE\PLCmodule\plcmodule.c</FilePath>
             </File>
           </Files>
         </Group>

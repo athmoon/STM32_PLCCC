@@ -81,6 +81,16 @@ typedef struct {
 	Actions action;
 } ReadResult;
 
+// 定义从节点结构体
+typedef struct {
+	u8 addr[6]; //从节点地址
+	u8 switch_status;//开关状态
+	u8 brightness;//亮度
+	u32 power;//功率
+	u32 voltage;//电压
+	u32 current;//电流
+} SlaveNode;
+
 typedef struct {
 	u8 direction;
 	u8 info[6];

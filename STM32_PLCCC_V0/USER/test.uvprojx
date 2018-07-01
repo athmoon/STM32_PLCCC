@@ -14,8 +14,6 @@
         <TargetCommonOption>
           <Device>STM32F103RC</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32F1xx_DFP.2.1.0</PackID>
-          <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IROM(0x08000000,0x40000) IRAM(0x20000000,0xC000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
@@ -84,8 +82,6 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
-            <nStopA1X>0</nStopA1X>
-            <nStopA2X>0</nStopA2X>
           </AfterMake>
           <SelectedForBatchBuild>0</SelectedForBatchBuild>
           <SVCSIdString></SVCSIdString>
@@ -147,6 +143,7 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>1</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
+            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>6</TargetSelection>
@@ -363,8 +360,6 @@
             <uSurpInc>0</uSurpInc>
             <uC99>0</uC99>
             <useXO>0</useXO>
-            <v6Lang>0</v6Lang>
-            <v6LangP>0</v6LangP>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
@@ -433,14 +428,14 @@
               <FilePath>.\plc.c</FilePath>
             </File>
             <File>
-              <FileName>com2_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\com2_task.c</FilePath>
-            </File>
-            <File>
               <FileName>_3762.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\_3762.c</FilePath>
+            </File>
+            <File>
+              <FileName>com2_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\com2_task.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -518,11 +513,6 @@
               <FilePath>..\HARDWARE\usart3\usart3.c</FilePath>
             </File>
             <File>
-              <FileName>usart4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\HARDWARE\usart4\usart4.c</FilePath>
-            </File>
-            <File>
               <FileName>dma.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\DMA\dma.c</FilePath>
@@ -545,7 +535,12 @@
             <File>
               <FileName>plcmodule.c</FileName>
               <FileType>1</FileType>
-              <FilePath>\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\HARDWARE\PLCmodule\plcmodule.c</FilePath>
+              <FilePath>..\HARDWARE\PLCmodule\plcmodule.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\usart4\usart4.c</FilePath>
             </File>
           </Files>
         </Group>

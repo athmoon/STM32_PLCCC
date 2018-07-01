@@ -57,7 +57,7 @@ u8 son_test(INT32U timeout);
 void Target1_task(void *pdata)
 {
 	
-	u8 err = 0;
+	//u8 err = 0;
 	u8 PLC_STATE0_Count = 0;
 	
 	OSTimeDlyHMSM(0, 0,1,0);//等待设备稳定

@@ -1,11 +1,11 @@
-..\obj\usart4.o: \\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\HARDWARE\usart4\usart4.c
+..\obj\usart4.o: ..\HARDWARE\usart4\usart4.c
 ..\obj\usart4.o: ..\SYSTEM\usart\usart.h
 ..\obj\usart4.o: ..\UCOSII\CONFIG\includes.h
-..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
-..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdio.h
+..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
+..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\ctype.h
+..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
+..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdarg.h
 ..\obj\usart4.o: ..\UCOSII\CORE\ucos_ii.h
 ..\obj\usart4.o: ..\UCOSII\CONFIG\includes.h
 ..\obj\usart4.o: ..\UCOSII\CONFIG\os_cfg.h
@@ -13,7 +13,7 @@
 ..\obj\usart4.o: ..\SYSTEM\sys\sys.h
 ..\obj\usart4.o: ..\CORE\stm32f10x.h
 ..\obj\usart4.o: ..\CORE\core_cm3.h
-..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\usart4.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
 ..\obj\usart4.o: ..\CORE\system_stm32f10x.h
 ..\obj\usart4.o: ..\CORE\stm32f10x_conf.h
 ..\obj\usart4.o: ..\STM32F10X_FWLIB\inc\stm32f10x_bkp.h
@@ -27,5 +27,5 @@
 ..\obj\usart4.o: ..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h
 ..\obj\usart4.o: ..\STM32F10X_FWLIB\inc\stm32f10x_usart.h
 ..\obj\usart4.o: ..\STM32F10X_FWLIB\inc\misc.h
-..\obj\usart4.o: \\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\HARDWARE\usart4\usart4.h
+..\obj\usart4.o: ..\HARDWARE\usart4\usart4.h
 ..\obj\usart4.o: ..\HARDWARE\DMA\dma.h
