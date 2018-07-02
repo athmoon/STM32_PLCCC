@@ -36,6 +36,16 @@
 #define F15 0x4001
 #define F16 0x8001
 
+extern u8 AFN00_F1[];
+extern u8 AFN01_F1[];
+extern u8 AFN01_F2[];
+extern u8 AFN01_F3[];
+extern u8 AFN03_F10[];
+extern u8 AFN03_F4[];
+extern u8 AFN05_F1[];
+extern u8 AFN10_F1[];
+extern u8 AFN10_F2[];
+
 typedef enum {
 	Null_Action = 0,
 	Hardware_Init = 1,

@@ -1,10 +1,10 @@
 ..\obj\os_mem.o: ..\UCOSII\CORE\os_mem.c
 ..\obj\os_mem.o: ..\UCOSII\CONFIG\includes.h
-..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdio.h
-..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
-..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\ctype.h
-..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
-..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdarg.h
+..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 ..\obj\os_mem.o: ..\UCOSII\CORE\ucos_ii.h
 ..\obj\os_mem.o: ..\UCOSII\CONFIG\includes.h
 ..\obj\os_mem.o: ..\UCOSII\CONFIG\os_cfg.h
@@ -12,7 +12,7 @@
 ..\obj\os_mem.o: ..\SYSTEM\sys\sys.h
 ..\obj\os_mem.o: ..\CORE\stm32f10x.h
 ..\obj\os_mem.o: ..\CORE\core_cm3.h
-..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+..\obj\os_mem.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\os_mem.o: ..\CORE\system_stm32f10x.h
 ..\obj\os_mem.o: ..\CORE\stm32f10x_conf.h
 ..\obj\os_mem.o: ..\STM32F10X_FWLIB\inc\stm32f10x_bkp.h

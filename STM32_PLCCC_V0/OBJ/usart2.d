@@ -1,11 +1,11 @@
 ..\obj\usart2.o: ..\HARDWARE\usart2\usart2.c
 ..\obj\usart2.o: ..\SYSTEM\usart\usart.h
 ..\obj\usart2.o: ..\UCOSII\CONFIG\includes.h
-..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdio.h
-..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
-..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\ctype.h
-..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h
-..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdarg.h
+..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 ..\obj\usart2.o: ..\UCOSII\CORE\ucos_ii.h
 ..\obj\usart2.o: ..\UCOSII\CONFIG\includes.h
 ..\obj\usart2.o: ..\UCOSII\CONFIG\os_cfg.h
@@ -13,7 +13,7 @@
 ..\obj\usart2.o: ..\SYSTEM\sys\sys.h
 ..\obj\usart2.o: ..\CORE\stm32f10x.h
 ..\obj\usart2.o: ..\CORE\core_cm3.h
-..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+..\obj\usart2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\usart2.o: ..\CORE\system_stm32f10x.h
 ..\obj\usart2.o: ..\CORE\stm32f10x_conf.h
 ..\obj\usart2.o: ..\STM32F10X_FWLIB\inc\stm32f10x_bkp.h

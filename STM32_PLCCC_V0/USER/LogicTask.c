@@ -52,6 +52,7 @@ u8 receive_msg_from_com1(INT32U timeout);
 u8 receive_msg_from_com2(INT32U timeout);
 u8 receive_msg_from_com4(INT32U timeout);
 void send_msg_to_com1(u8* msg, u8 len);
+void send_msg_to_com4(u8* msg, u8 len);
 
 u8 son_test(INT32U timeout);
 void Target1_task(void *pdata)
@@ -59,6 +60,7 @@ void Target1_task(void *pdata)
 	
 	//u8 err = 0;
 	u8 PLC_STATE0_Count = 0;
+	u8 waiting = 0;
 	
 	OSTimeDlyHMSM(0, 0,1,0);//等待设备稳定
 	
@@ -105,6 +107,12 @@ void Target1_task(void *pdata)
 						if (!receive_msg_from_com4(DEV_TIMEOUT_10)) goto TIMEOUTCHECK;//无数据
 						if (read_3762_str(com4.DMA_RX_BUF, com4.lenRec)) goto TIMEOUTCHECK;//校验错
 						if (!(readResult.AFN_code == AFN03 && readResult.F_code == F10)) goto TIMEOUTCHECK;//非AFN03F10指令
+						
+						// 判断是否需要回复，主动上行的数据需要进行回复
+						if (readResult.rep_len != 0) {// 回复数据长度不为0，进行回复
+							// 发送数据给PLC模块（com4）
+							send_msg_to_com4(readResult.rep_buf, readResult.rep_len);
+						}
 						// 1.1、判断flash中存储的主节点信息是否与当前主节点上报的信息相同
 						if (readResult.action == Null_Action) {
 							// 如果相同，不做任何处理，进入节点信息查询状态
@@ -114,22 +122,27 @@ void Target1_task(void *pdata)
 						}
 						
 						TIMEOUTCHECK:
-						if (OSTimeGet() >= 20) {//超过20秒，主动下发AFN03F10
-							
+						if (OSTimeGet() >= 20) {//超过20秒，主动下发AFN03F10查询命令
+							send_msg_to_com4(AFN03_F10, AFN03_F10[1]);
+							OSTimeSet(0);
 						}
 						break;
 						
 					case ConfigStatus_addrinit:// 地址初始化
-						// 1、发送设置主节点地址指令，将主节点地址设置为1
-						// 2、等待主节点回复，若无回复超过预设时间，重复发送该指令
-						// 3、主节点回复成功，进入数据区初始化
+						if (waiting == 0) {
+							// 1、发送设置主节点地址指令，将主节点地址设置为0
+							waiting = 1;
+							OSTimeSet(0);
+						}
+						// 2、主节点回复成功，进入数据区初始化
+						// 3、等待主节点回复，若无回复超过预设时间，重复发送该指令
 						break;
 					
 					case ConfigStatus_datainit:// 数据区初始化
 						break;
-					
+					// 初始化完成后，下发AFN03F10指令，将新的节点信息存储到flash
 					case ConfigStatus_readData:// 读节点数据
-						
+						//将节点信息存储到flash
 						break;
 						
 					default:
@@ -212,7 +225,14 @@ u8 receive_msg_from_com4(INT32U timeout) {
 
 // 发送信息给串口1
 void send_msg_to_com1(u8* msg, u8 len) {
-	memcpy(com1.DMA_TX_BUF, msg, len);// 将串口4接受缓冲区的数据拷贝到串口1的发送缓冲区
+	memcpy(com1.DMA_TX_BUF, msg, len);// 将数据拷贝到串口1的发送缓冲区
 	com1.lenSend = len;
 	OSSemPost(Com1_tx_sem);// 发送消息给串口1，开始发送数据。
+}
+
+// 发送信息给串口4
+void send_msg_to_com4(u8* msg, u8 len) {
+	memcpy(com4.DMA_TX_BUF, msg, len);// 将数据拷贝到串口4的发送缓冲区
+	com4.lenSend = len;
+	OSSemPost(Com4_tx_sem);// 发送消息给串口4，开始发送数据。
 }
