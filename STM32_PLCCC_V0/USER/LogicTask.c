@@ -131,14 +131,25 @@ void Target1_task(void *pdata)
 					case ConfigStatus_addrinit:// 地址初始化
 						if (waiting == 0) {
 							// 1、发送设置主节点地址指令，将主节点地址设置为0
+							send_msg_to_com4(AFN05_F1, AFN05_F1[1]);
 							waiting = 1;
 							OSTimeSet(0);
+						} else {
+							// 3、若无回复超过预设时间，重复发送该指令
+							if (OSTimeGet() > 5) {
+								waiting = 0;
+							}
 						}
 						// 2、主节点回复成功，进入数据区初始化
-						// 3、等待主节点回复，若无回复超过预设时间，重复发送该指令
+						if (!receive_msg_from_com4(DEV_TIMEOUT_10)) break;//无数据
+						if (read_3762_str(com4.DMA_RX_BUF, com4.lenRec)) break;//校验错
+						if (!(readResult.AFN_code == AFN00 && readResult.F_code == F1)) break;//非AFN00F1指令
+						// 地址设置成功，进入数据初始化
+						conf_status = ConfigStatus_datainit;
 						break;
 					
 					case ConfigStatus_datainit:// 数据区初始化
+						
 						break;
 					// 初始化完成后，下发AFN03F10指令，将新的节点信息存储到flash
 					case ConfigStatus_readData:// 读节点数据
