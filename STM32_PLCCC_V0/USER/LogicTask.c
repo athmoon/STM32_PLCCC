@@ -28,6 +28,7 @@ typedef enum {
 	ConfigStatus_datainit,
 	ConfigStatus_addrinit,
 	ConfigStatus_devinit,
+	ConfigStatus_flashInit,
 	ConfigStatus_readData,
 } ConfigStatus;
 
@@ -67,6 +68,7 @@ void Target1_task(void *pdata)
 	RTC_Init();
 	
 	//STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)ElePrice,12);
+	main_node_data_init();// 主节点信息初始化（从Flash取出）
 
 	// 设备自检
 	device_test();
@@ -144,14 +146,56 @@ void Target1_task(void *pdata)
 						if (!receive_msg_from_com4(DEV_TIMEOUT_10)) break;//无数据
 						if (read_3762_str(com4.DMA_RX_BUF, com4.lenRec)) break;//校验错
 						if (!(readResult.AFN_code == AFN00 && readResult.F_code == F1)) break;//非AFN00F1指令
+						
 						// 地址设置成功，进入数据初始化
 						conf_status = ConfigStatus_datainit;
+						waiting = 0;
 						break;
 					
 					case ConfigStatus_datainit:// 数据区初始化
+						if (waiting == 0) {
+							// 1、发送数据区初始化指令
+							send_msg_to_com4(AFN01_F3, AFN01_F3[1]);
+							waiting = 1;
+							OSTimeSet(0);
+						} else {
+							// 3、若无回复超过预设时间，重复发送该指令
+							if (OSTimeGet() > 5) {
+								waiting = 0;
+							}
+						}
+						// 2、主节点回复成功，重新查询节点信息，存入flash
+						if (!receive_msg_from_com4(DEV_TIMEOUT_10)) break;//无数据
+						if (read_3762_str(com4.DMA_RX_BUF, com4.lenRec)) break;//校验错
+						if (!(readResult.AFN_code == AFN00 && readResult.F_code == F1)) break;//非AFN00F1指令
 						
+						// 数据初始化成功，进入查询节点运行模式，写flash状态
+						conf_status = ConfigStatus_flashInit;
+						waiting = 0;
 						break;
-					// 初始化完成后，下发AFN03F10指令，将新的节点信息存储到flash
+						
+					case ConfigStatus_flashInit:
+						// 下发AFN03F10指令，将新的节点信息存储到flash
+						if (waiting == 0) {
+							// 1、发送查询节点运行模式指令
+							send_msg_to_com4(AFN03_F10, AFN03_F10[1]);
+							waiting = 1;
+							OSTimeSet(0);
+						} else {
+							// 3、若无回复超过预设时间，重复发送该指令
+							if (OSTimeGet() > 5) {
+								waiting = 0;
+							}
+						}
+						// 2、主节点回复成功，存入flash（已在解析函数中存入）
+						if (!receive_msg_from_com4(DEV_TIMEOUT_10)) break;//无数据
+						if (read_3762_str(com4.DMA_RX_BUF, com4.lenRec)) break;//校验错
+						if (!(readResult.AFN_code == AFN03 && readResult.F_code == F10)) break;//非AFN03F10指令
+						
+						conf_status = ConfigStatus_readData;
+						waiting = 0;
+						break;
+					
 					case ConfigStatus_readData:// 读节点数据
 						//将节点信息存储到flash
 						break;

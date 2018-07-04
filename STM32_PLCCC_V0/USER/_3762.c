@@ -144,10 +144,10 @@ u8 read_3762_str(u8 *src_str, u8 src_len) {
 						AFN03_F10_data_translate(&src_str[13]);//数据解析
 						if (memcmp((u8 *)&mNode, (u8 *)&memory_data, 46) == 0) {//信息完全相同
 							readResult.action = Null_Action;
-						} else {//新的主节点
-							readResult.action = Hardware_Init;
-							// 判断flash中存储的节点地址信息是否为00000000，如果不是，说明flash内未存储信息
-							// 如果是00000000，说明主节点未进行初始化配置。进行参数、数据初始化，然后设置主节点地址，最后硬件初始化
+						} else {//新的主节点，或者疾控器首次连接主节点，flash是FFFF
+							readResult.action = Hardware_Init;// 进行硬件初始化
+							//将新的主节点信息存入flash。
+							
 						}
 						//2、如果是主节点主动上报的信息，回复确认帧。
 						if (readResult.direction == 0xC1) {
@@ -318,7 +318,7 @@ u16 get_F_code(u8 *src_str) {
 
 void main_node_data_init(void) {
 	//从flash读取载波主节点的本地数据进行初始化
-	//STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)ElePrice,12);
+	//STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)memory_data,23);
 	STMFLASH_Read(FLASH_SAVE_ADDR,(u16*)&memory_data,23);
 }
 

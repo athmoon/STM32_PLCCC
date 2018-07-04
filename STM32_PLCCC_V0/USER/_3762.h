@@ -114,5 +114,6 @@ extern MainNode mNode;
 extern ReadResult readResult;
 
 u8 read_3762_str(u8 *src_str, u8 src_len);
+void main_node_data_init(void);
 
 #endif
