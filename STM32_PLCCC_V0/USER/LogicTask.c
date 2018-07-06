@@ -207,7 +207,9 @@ void Target1_task(void *pdata)
 				break;
 			case WorkStatus_Idle://空闲状态
 				// 如果收到载波主节点上行帧，进行解析，如果是主动上行帧，进行回复；如果是被动上行帧，将结果返回给上位机
-				// 如果收到上位机的指令，按照376.2透传转发指令，下发给载波主节点
+				// 暂时使用串口2接受上位机信息。
+				// 如果收到上位机的指令，先进行解析，如果是对从节点的控制或查询指令，按照376.2透传转发指令，下发给载波主节点
+				receive_msg_from_com2(DEV_TIMEOUT_10);
 				break;
 			case WorkStatus_Error://异常状态
 				break;
@@ -253,9 +255,10 @@ u8 receive_msg_from_com2(INT32U timeout) {
 	
 	OSSemPend(Com2_rx_sem, timeout, &err);// 读取信号量
 	if (err == OS_ERR_NONE) {
-		memcpy(com1.DMA_TX_BUF, com2.DMA_RX_BUF, com2.lenRec);// 将串口2接受缓冲区的数据拷贝到串口4的发送缓冲区
-		com1.lenSend = com2.lenRec;
-		OSSemPost(Com1_tx_sem);// 发送消息给串口4，开始发送数据。
+		
+//		memcpy(com1.DMA_TX_BUF, com2.DMA_RX_BUF, com2.lenRec);
+//		com1.lenSend = com2.lenRec;
+//		OSSemPost(Com1_tx_sem);
 		return 1;
 	} else {
 		return 0;

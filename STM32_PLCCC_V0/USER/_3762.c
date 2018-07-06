@@ -147,7 +147,7 @@ u8 read_3762_str(u8 *src_str, u8 src_len) {
 						} else {//新的主节点，或者疾控器首次连接主节点，flash是FFFF
 							readResult.action = Hardware_Init;// 进行硬件初始化
 							//将新的主节点信息存入flash。
-							
+							STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)&mNode,23);
 						}
 						//2、如果是主节点主动上报的信息，回复确认帧。
 						if (readResult.direction == 0xC1) {
