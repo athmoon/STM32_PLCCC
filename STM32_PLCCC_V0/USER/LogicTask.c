@@ -14,6 +14,9 @@
 #include "plcmodule.h"
 #include "_3762.h"
 
+#define PLCCmdTimeWait (5 * 100)
+#define AFN10F3TimeWait (10 * 100)
+
 typedef enum {
 	WorkStatus_Starting = 1,
 	WorkStatus_Config,
@@ -124,7 +127,7 @@ void Target1_task(void *pdata)
 						}
 						
 						TIMEOUTCHECK:
-						if (OSTimeGet() >= 20) {//超过20秒，主动下发AFN03F10查询命令
+						if (OSTimeGet() >= AFN10F3TimeWait) {//超过10秒，主动下发AFN03F10查询命令
 							send_msg_to_com4(AFN03_F10, AFN03_F10[1]);
 							OSTimeSet(0);
 						}
@@ -138,7 +141,7 @@ void Target1_task(void *pdata)
 							OSTimeSet(0);
 						} else {
 							// 3、若无回复超过预设时间，重复发送该指令
-							if (OSTimeGet() > 5) {
+							if (OSTimeGet() > PLCCmdTimeWait) {
 								waiting = 0;
 							}
 						}
@@ -160,7 +163,7 @@ void Target1_task(void *pdata)
 							OSTimeSet(0);
 						} else {
 							// 3、若无回复超过预设时间，重复发送该指令
-							if (OSTimeGet() > 5) {
+							if (OSTimeGet() > PLCCmdTimeWait) {
 								waiting = 0;
 							}
 						}
@@ -183,7 +186,7 @@ void Target1_task(void *pdata)
 							OSTimeSet(0);
 						} else {
 							// 3、若无回复超过预设时间，重复发送该指令
-							if (OSTimeGet() > 5) {
+							if (OSTimeGet() > PLCCmdTimeWait) {
 								waiting = 0;
 							}
 						}
@@ -198,6 +201,7 @@ void Target1_task(void *pdata)
 					
 					case ConfigStatus_readData:// 读节点数据
 						//将节点信息存储到flash
+						workStatus = WorkStatus_Test;
 						break;
 						
 					default:
@@ -217,9 +221,9 @@ void Target1_task(void *pdata)
 				// 如果接收到串口1的数据，转发给串口4
 				receive_msg_from_com1(DEV_TIMEOUT_10);
 				
-				// 如果接收到串口4的数据，转发给串口2
-				// receive_msg_from_com4(DEV_TIMEOUT_10);
-				receive_msg_from_com2(DEV_TIMEOUT_10);
+				// 如果接收到串口4的数据，转发给串口1
+				receive_msg_from_com4(DEV_TIMEOUT_10);
+				// receive_msg_from_com2(DEV_TIMEOUT_10);
 				break;
 			default:
 				break;

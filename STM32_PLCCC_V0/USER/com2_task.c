@@ -15,15 +15,21 @@ void Target4_task(void *pdata)
 	{
 		OSTimeDlyHMSM(0, 0, 0, 1);
 		
+		// 第一步，接受串口2指令
 		OSSemPend(com2.sem_DMA_RX,DEV_TIMEOUT_10,&err);
 		if(err == OS_ERR_NONE){
 			OSSemPost(Com2_rx_sem);
 		}
 		
+		// 第二步，指令解析 + 指令转义
+		
+		// 第三步，发送指令
 		OSSemPend(Com2_tx_sem, DEV_TIMEOUT_10,&err);
 		if(err == OS_ERR_NONE){
 			send_to_com2(com2.DMA_TX_BUF, com2.lenSend);
 		}
+		
+		// 第四步， 等待回复并返回结果
 	}
 }
 

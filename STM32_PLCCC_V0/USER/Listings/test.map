@@ -48,8 +48,8 @@ Section Cross References
     logictask.o(i.Target1_task) refers to _3762.o(i.read_3762_str) for read_3762_str
     logictask.o(i.Target1_task) refers to logictask.o(i.send_msg_to_com4) for send_msg_to_com4
     logictask.o(i.Target1_task) refers to os_time.o(i.OSTimeGet) for OSTimeGet
-    logictask.o(i.Target1_task) refers to logictask.o(i.receive_msg_from_com1) for receive_msg_from_com1
     logictask.o(i.Target1_task) refers to logictask.o(i.receive_msg_from_com2) for receive_msg_from_com2
+    logictask.o(i.Target1_task) refers to logictask.o(i.receive_msg_from_com1) for receive_msg_from_com1
     logictask.o(i.Target1_task) refers to logictask.o(.data) for workStatus
     logictask.o(i.Target1_task) refers to usart.o(.bss) for com4
     logictask.o(i.Target1_task) refers to _3762.o(.bss) for readResult
@@ -60,10 +60,7 @@ Section Cross References
     logictask.o(i.receive_msg_from_com1) refers to logictask.o(.data) for Com1_rx_sem
     logictask.o(i.receive_msg_from_com1) refers to usart.o(.bss) for com1
     logictask.o(i.receive_msg_from_com2) refers to os_sem.o(i.OSSemPend) for OSSemPend
-    logictask.o(i.receive_msg_from_com2) refers to rt_memcpy_v6.o(.text) for __aeabi_memcpy
-    logictask.o(i.receive_msg_from_com2) refers to os_sem.o(i.OSSemPost) for OSSemPost
     logictask.o(i.receive_msg_from_com2) refers to logictask.o(.data) for Com2_rx_sem
-    logictask.o(i.receive_msg_from_com2) refers to usart.o(.bss) for com2
     logictask.o(i.receive_msg_from_com4) refers to os_sem.o(i.OSSemPend) for OSSemPend
     logictask.o(i.receive_msg_from_com4) refers to rt_memcpy_v6.o(.text) for __aeabi_memcpy
     logictask.o(i.receive_msg_from_com4) refers to os_sem.o(i.OSSemPost) for OSSemPost
@@ -1225,49 +1222,49 @@ Image Symbol Table
     i.SysTick_Handler                        0x0800255c   Section        0  delay.o(i.SysTick_Handler)
     i.SystemInit                             0x0800256c   Section        0  system_stm32f10x.o(i.SystemInit)
     i.Target1_task                           0x080025cc   Section        0  logictask.o(i.Target1_task)
-    i.Target2_task                           0x0800282c   Section        0  target2.o(i.Target2_task)
-    i.Target3_task                           0x08002884   Section        0  plc.o(i.Target3_task)
-    i.Target4_task                           0x080028dc   Section        0  com2_task.o(i.Target4_task)
-    i.UART4_IRQHandler                       0x08002934   Section        0  usart4.o(i.UART4_IRQHandler)
-    i.USART1_IRQHandler                      0x080029b0   Section        0  usart1.o(i.USART1_IRQHandler)
-    i.USART2_IRQHandler                      0x08002a2c   Section        0  usart2.o(i.USART2_IRQHandler)
-    i.USART3_IRQHandler                      0x08002abc   Section        0  usart3.o(i.USART3_IRQHandler)
-    i.USART_ClearITPendingBit                0x08002b40   Section        0  stm32f10x_usart.o(i.USART_ClearITPendingBit)
-    i.USART_Cmd                              0x08002b5e   Section        0  stm32f10x_usart.o(i.USART_Cmd)
-    i.USART_DMACmd                           0x08002b76   Section        0  stm32f10x_usart.o(i.USART_DMACmd)
-    i.USART_GetFlagStatus                    0x08002b88   Section        0  stm32f10x_usart.o(i.USART_GetFlagStatus)
-    i.USART_GetITStatus                      0x08002ba2   Section        0  stm32f10x_usart.o(i.USART_GetITStatus)
-    i.USART_ITConfig                         0x08002bf6   Section        0  stm32f10x_usart.o(i.USART_ITConfig)
-    i.USART_Init                             0x08002c40   Section        0  stm32f10x_usart.o(i.USART_Init)
-    i.USART_SendData                         0x08002d18   Section        0  stm32f10x_usart.o(i.USART_SendData)
-    i.UsageFault_Handler                     0x08002d20   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
-    i.check_cs                               0x08002d24   Section        0  _3762.o(i.check_cs)
-    i.delay_init                             0x08002d48   Section        0  delay.o(i.delay_init)
-    i.delay_ms                               0x08002da4   Section        0  delay.o(i.delay_ms)
-    i.delay_us                               0x08002dec   Section        0  delay.o(i.delay_us)
-    i.device_test                            0x08002e38   Section        0  logictask.o(i.device_test)
-    i.get_AFN_code                           0x08002e3a   Section        0  _3762.o(i.get_AFN_code)
-    i.get_F_code                             0x08002e40   Section        0  _3762.o(i.get_F_code)
-    i.get_cs                                 0x08002e4e   Section        0  _3762.o(i.get_cs)
-    i.main                                   0x08002e6c   Section        0  main.o(i.main)
-    i.main_node_data_init                    0x08002e94   Section        0  _3762.o(i.main_node_data_init)
-    i.plcmodule_init                         0x08002eac   Section        0  plcmodule.o(i.plcmodule_init)
-    i.read_3762_str                          0x08002f04   Section        0  _3762.o(i.read_3762_str)
-    i.receive_msg_from_com1                  0x08003248   Section        0  logictask.o(i.receive_msg_from_com1)
-    i.receive_msg_from_com2                  0x08003298   Section        0  logictask.o(i.receive_msg_from_com2)
-    i.receive_msg_from_com4                  0x080032e8   Section        0  logictask.o(i.receive_msg_from_com4)
-    i.send_msg_to_com4                       0x08003338   Section        0  logictask.o(i.send_msg_to_com4)
-    i.send_to_com1                           0x08003360   Section        0  target2.o(i.send_to_com1)
-    i.send_to_com2                           0x08003390   Section        0  com2_task.o(i.send_to_com2)
-    i.send_to_com4                           0x080033c0   Section        0  plc.o(i.send_to_com4)
-    i.start_task                             0x080033f0   Section        0  main.o(i.start_task)
-    i.uart4_init                             0x08003468   Section        0  usart4.o(i.uart4_init)
-    i.usart1_init                            0x08003524   Section        0  usart1.o(i.usart1_init)
-    i.usart2_init                            0x080035c8   Section        0  usart2.o(i.usart2_init)
-    i.usart3_init                            0x08003678   Section        0  usart3.o(i.usart3_init)
-    i.usart_init                             0x08003744   Section        0  main.o(i.usart_init)
-    .constdata                               0x0800381c   Section       24  rtc.o(.constdata)
-    .constdata                               0x08003834   Section      256  os_core.o(.constdata)
+    i.Target2_task                           0x08002848   Section        0  target2.o(i.Target2_task)
+    i.Target3_task                           0x080028a0   Section        0  plc.o(i.Target3_task)
+    i.Target4_task                           0x080028f8   Section        0  com2_task.o(i.Target4_task)
+    i.UART4_IRQHandler                       0x08002950   Section        0  usart4.o(i.UART4_IRQHandler)
+    i.USART1_IRQHandler                      0x080029cc   Section        0  usart1.o(i.USART1_IRQHandler)
+    i.USART2_IRQHandler                      0x08002a48   Section        0  usart2.o(i.USART2_IRQHandler)
+    i.USART3_IRQHandler                      0x08002ad8   Section        0  usart3.o(i.USART3_IRQHandler)
+    i.USART_ClearITPendingBit                0x08002b5c   Section        0  stm32f10x_usart.o(i.USART_ClearITPendingBit)
+    i.USART_Cmd                              0x08002b7a   Section        0  stm32f10x_usart.o(i.USART_Cmd)
+    i.USART_DMACmd                           0x08002b92   Section        0  stm32f10x_usart.o(i.USART_DMACmd)
+    i.USART_GetFlagStatus                    0x08002ba4   Section        0  stm32f10x_usart.o(i.USART_GetFlagStatus)
+    i.USART_GetITStatus                      0x08002bbe   Section        0  stm32f10x_usart.o(i.USART_GetITStatus)
+    i.USART_ITConfig                         0x08002c12   Section        0  stm32f10x_usart.o(i.USART_ITConfig)
+    i.USART_Init                             0x08002c5c   Section        0  stm32f10x_usart.o(i.USART_Init)
+    i.USART_SendData                         0x08002d34   Section        0  stm32f10x_usart.o(i.USART_SendData)
+    i.UsageFault_Handler                     0x08002d3c   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
+    i.check_cs                               0x08002d40   Section        0  _3762.o(i.check_cs)
+    i.delay_init                             0x08002d64   Section        0  delay.o(i.delay_init)
+    i.delay_ms                               0x08002dc0   Section        0  delay.o(i.delay_ms)
+    i.delay_us                               0x08002e08   Section        0  delay.o(i.delay_us)
+    i.device_test                            0x08002e54   Section        0  logictask.o(i.device_test)
+    i.get_AFN_code                           0x08002e56   Section        0  _3762.o(i.get_AFN_code)
+    i.get_F_code                             0x08002e5c   Section        0  _3762.o(i.get_F_code)
+    i.get_cs                                 0x08002e6a   Section        0  _3762.o(i.get_cs)
+    i.main                                   0x08002e88   Section        0  main.o(i.main)
+    i.main_node_data_init                    0x08002eb0   Section        0  _3762.o(i.main_node_data_init)
+    i.plcmodule_init                         0x08002ec8   Section        0  plcmodule.o(i.plcmodule_init)
+    i.read_3762_str                          0x08002f20   Section        0  _3762.o(i.read_3762_str)
+    i.receive_msg_from_com1                  0x08003264   Section        0  logictask.o(i.receive_msg_from_com1)
+    i.receive_msg_from_com2                  0x080032b4   Section        0  logictask.o(i.receive_msg_from_com2)
+    i.receive_msg_from_com4                  0x080032dc   Section        0  logictask.o(i.receive_msg_from_com4)
+    i.send_msg_to_com4                       0x0800332c   Section        0  logictask.o(i.send_msg_to_com4)
+    i.send_to_com1                           0x08003354   Section        0  target2.o(i.send_to_com1)
+    i.send_to_com2                           0x08003384   Section        0  com2_task.o(i.send_to_com2)
+    i.send_to_com4                           0x080033b4   Section        0  plc.o(i.send_to_com4)
+    i.start_task                             0x080033e4   Section        0  main.o(i.start_task)
+    i.uart4_init                             0x0800345c   Section        0  usart4.o(i.uart4_init)
+    i.usart1_init                            0x08003518   Section        0  usart1.o(i.usart1_init)
+    i.usart2_init                            0x080035bc   Section        0  usart2.o(i.usart2_init)
+    i.usart3_init                            0x0800366c   Section        0  usart3.o(i.usart3_init)
+    i.usart_init                             0x08003738   Section        0  main.o(i.usart_init)
+    .constdata                               0x08003810   Section       24  rtc.o(.constdata)
+    .constdata                               0x08003828   Section      256  os_core.o(.constdata)
     .data                                    0x20000000   Section       40  logictask.o(.data)
     .data                                    0x20000028   Section      180  _3762.o(.data)
     .data                                    0x200000dc   Section       20  system_stm32f10x.o(.data)
@@ -1284,16 +1281,16 @@ Image Symbol Table
     .data                                    0x20000110   Section       72  os_core.o(.data)
     .bss                                     0x20000158   Section     2304  main.o(.bss)
     .bss                                     0x20000a58   Section      244  _3762.o(.bss)
-    .bss                                     0x20000b4c   Section     1088  usart.o(.bss)
-    .bss                                     0x20000f8c   Section       20  rtc.o(.bss)
-    .bss                                     0x20000fa0   Section     1024  flash.o(.bss)
-    .bss                                     0x200013a0   Section     3128  os_core.o(.bss)
-    .bss                                     0x20001fd8   Section       96  libspace.o(.bss)
-    HEAP                                     0x20002038   Section      512  startup_stm32f10x_hd.o(HEAP)
-    Heap_Mem                                 0x20002038   Data         512  startup_stm32f10x_hd.o(HEAP)
-    STACK                                    0x20002238   Section     1024  startup_stm32f10x_hd.o(STACK)
-    Stack_Mem                                0x20002238   Data        1024  startup_stm32f10x_hd.o(STACK)
-    __initial_sp                             0x20002638   Data           0  startup_stm32f10x_hd.o(STACK)
+    .bss                                     0x20000b4c   Section     2104  usart.o(.bss)
+    .bss                                     0x20001384   Section       20  rtc.o(.bss)
+    .bss                                     0x20001398   Section     1024  flash.o(.bss)
+    .bss                                     0x20001798   Section     3128  os_core.o(.bss)
+    .bss                                     0x200023d0   Section       96  libspace.o(.bss)
+    HEAP                                     0x20002430   Section      512  startup_stm32f10x_hd.o(HEAP)
+    Heap_Mem                                 0x20002430   Data         512  startup_stm32f10x_hd.o(HEAP)
+    STACK                                    0x20002630   Section     1024  startup_stm32f10x_hd.o(STACK)
+    Stack_Mem                                0x20002630   Data        1024  startup_stm32f10x_hd.o(STACK)
+    __initial_sp                             0x20002a30   Data           0  startup_stm32f10x_hd.o(STACK)
 
     Global Symbols
 
@@ -1573,53 +1570,53 @@ Image Symbol Table
     SysTick_CLKSourceConfig                  0x08002535   Thumb Code    40  misc.o(i.SysTick_CLKSourceConfig)
     SysTick_Handler                          0x0800255d   Thumb Code    16  delay.o(i.SysTick_Handler)
     SystemInit                               0x0800256d   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
-    Target1_task                             0x080025cd   Thumb Code   572  logictask.o(i.Target1_task)
-    Target2_task                             0x0800282d   Thumb Code    76  target2.o(i.Target2_task)
-    Target3_task                             0x08002885   Thumb Code    76  plc.o(i.Target3_task)
-    Target4_task                             0x080028dd   Thumb Code    76  com2_task.o(i.Target4_task)
-    UART4_IRQHandler                         0x08002935   Thumb Code   110  usart4.o(i.UART4_IRQHandler)
-    USART1_IRQHandler                        0x080029b1   Thumb Code   110  usart1.o(i.USART1_IRQHandler)
-    USART2_IRQHandler                        0x08002a2d   Thumb Code   128  usart2.o(i.USART2_IRQHandler)
-    USART3_IRQHandler                        0x08002abd   Thumb Code   118  usart3.o(i.USART3_IRQHandler)
-    USART_ClearITPendingBit                  0x08002b41   Thumb Code    30  stm32f10x_usart.o(i.USART_ClearITPendingBit)
-    USART_Cmd                                0x08002b5f   Thumb Code    24  stm32f10x_usart.o(i.USART_Cmd)
-    USART_DMACmd                             0x08002b77   Thumb Code    18  stm32f10x_usart.o(i.USART_DMACmd)
-    USART_GetFlagStatus                      0x08002b89   Thumb Code    26  stm32f10x_usart.o(i.USART_GetFlagStatus)
-    USART_GetITStatus                        0x08002ba3   Thumb Code    84  stm32f10x_usart.o(i.USART_GetITStatus)
-    USART_ITConfig                           0x08002bf7   Thumb Code    74  stm32f10x_usart.o(i.USART_ITConfig)
-    USART_Init                               0x08002c41   Thumb Code   210  stm32f10x_usart.o(i.USART_Init)
-    USART_SendData                           0x08002d19   Thumb Code     8  stm32f10x_usart.o(i.USART_SendData)
-    UsageFault_Handler                       0x08002d21   Thumb Code     4  stm32f10x_it.o(i.UsageFault_Handler)
-    check_cs                                 0x08002d25   Thumb Code    34  _3762.o(i.check_cs)
-    delay_init                               0x08002d49   Thumb Code    76  delay.o(i.delay_init)
-    delay_ms                                 0x08002da5   Thumb Code    62  delay.o(i.delay_ms)
-    delay_us                                 0x08002ded   Thumb Code    70  delay.o(i.delay_us)
-    device_test                              0x08002e39   Thumb Code     2  logictask.o(i.device_test)
-    get_AFN_code                             0x08002e3b   Thumb Code     6  _3762.o(i.get_AFN_code)
-    get_F_code                               0x08002e41   Thumb Code    14  _3762.o(i.get_F_code)
-    get_cs                                   0x08002e4f   Thumb Code    30  _3762.o(i.get_cs)
-    main                                     0x08002e6d   Thumb Code    30  main.o(i.main)
-    main_node_data_init                      0x08002e95   Thumb Code    14  _3762.o(i.main_node_data_init)
-    plcmodule_init                           0x08002ead   Thumb Code    78  plcmodule.o(i.plcmodule_init)
-    read_3762_str                            0x08002f05   Thumb Code   816  _3762.o(i.read_3762_str)
-    receive_msg_from_com1                    0x08003249   Thumb Code    64  logictask.o(i.receive_msg_from_com1)
-    receive_msg_from_com2                    0x08003299   Thumb Code    64  logictask.o(i.receive_msg_from_com2)
-    receive_msg_from_com4                    0x080032e9   Thumb Code    64  logictask.o(i.receive_msg_from_com4)
-    send_msg_to_com4                         0x08003339   Thumb Code    32  logictask.o(i.send_msg_to_com4)
-    send_to_com1                             0x08003361   Thumb Code    42  target2.o(i.send_to_com1)
-    send_to_com2                             0x08003391   Thumb Code    42  com2_task.o(i.send_to_com2)
-    send_to_com4                             0x080033c1   Thumb Code    42  plc.o(i.send_to_com4)
-    start_task                               0x080033f1   Thumb Code    88  main.o(i.start_task)
-    uart4_init                               0x08003469   Thumb Code   178  usart4.o(i.uart4_init)
-    usart1_init                              0x08003525   Thumb Code   154  usart1.o(i.usart1_init)
-    usart2_init                              0x080035c9   Thumb Code   166  usart2.o(i.usart2_init)
-    usart3_init                              0x08003679   Thumb Code   196  usart3.o(i.usart3_init)
-    usart_init                               0x08003745   Thumb Code   174  main.o(i.usart_init)
-    table_week                               0x0800381c   Data          12  rtc.o(.constdata)
-    mon_table                                0x08003828   Data          12  rtc.o(.constdata)
-    OSUnMapTbl                               0x08003834   Data         256  os_core.o(.constdata)
-    Region$$Table$$Base                      0x08003934   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08003954   Number         0  anon$$obj.o(Region$$Table)
+    Target1_task                             0x080025cd   Thumb Code   598  logictask.o(i.Target1_task)
+    Target2_task                             0x08002849   Thumb Code    76  target2.o(i.Target2_task)
+    Target3_task                             0x080028a1   Thumb Code    76  plc.o(i.Target3_task)
+    Target4_task                             0x080028f9   Thumb Code    76  com2_task.o(i.Target4_task)
+    UART4_IRQHandler                         0x08002951   Thumb Code   110  usart4.o(i.UART4_IRQHandler)
+    USART1_IRQHandler                        0x080029cd   Thumb Code   110  usart1.o(i.USART1_IRQHandler)
+    USART2_IRQHandler                        0x08002a49   Thumb Code   128  usart2.o(i.USART2_IRQHandler)
+    USART3_IRQHandler                        0x08002ad9   Thumb Code   118  usart3.o(i.USART3_IRQHandler)
+    USART_ClearITPendingBit                  0x08002b5d   Thumb Code    30  stm32f10x_usart.o(i.USART_ClearITPendingBit)
+    USART_Cmd                                0x08002b7b   Thumb Code    24  stm32f10x_usart.o(i.USART_Cmd)
+    USART_DMACmd                             0x08002b93   Thumb Code    18  stm32f10x_usart.o(i.USART_DMACmd)
+    USART_GetFlagStatus                      0x08002ba5   Thumb Code    26  stm32f10x_usart.o(i.USART_GetFlagStatus)
+    USART_GetITStatus                        0x08002bbf   Thumb Code    84  stm32f10x_usart.o(i.USART_GetITStatus)
+    USART_ITConfig                           0x08002c13   Thumb Code    74  stm32f10x_usart.o(i.USART_ITConfig)
+    USART_Init                               0x08002c5d   Thumb Code   210  stm32f10x_usart.o(i.USART_Init)
+    USART_SendData                           0x08002d35   Thumb Code     8  stm32f10x_usart.o(i.USART_SendData)
+    UsageFault_Handler                       0x08002d3d   Thumb Code     4  stm32f10x_it.o(i.UsageFault_Handler)
+    check_cs                                 0x08002d41   Thumb Code    34  _3762.o(i.check_cs)
+    delay_init                               0x08002d65   Thumb Code    76  delay.o(i.delay_init)
+    delay_ms                                 0x08002dc1   Thumb Code    62  delay.o(i.delay_ms)
+    delay_us                                 0x08002e09   Thumb Code    70  delay.o(i.delay_us)
+    device_test                              0x08002e55   Thumb Code     2  logictask.o(i.device_test)
+    get_AFN_code                             0x08002e57   Thumb Code     6  _3762.o(i.get_AFN_code)
+    get_F_code                               0x08002e5d   Thumb Code    14  _3762.o(i.get_F_code)
+    get_cs                                   0x08002e6b   Thumb Code    30  _3762.o(i.get_cs)
+    main                                     0x08002e89   Thumb Code    30  main.o(i.main)
+    main_node_data_init                      0x08002eb1   Thumb Code    14  _3762.o(i.main_node_data_init)
+    plcmodule_init                           0x08002ec9   Thumb Code    78  plcmodule.o(i.plcmodule_init)
+    read_3762_str                            0x08002f21   Thumb Code   816  _3762.o(i.read_3762_str)
+    receive_msg_from_com1                    0x08003265   Thumb Code    64  logictask.o(i.receive_msg_from_com1)
+    receive_msg_from_com2                    0x080032b5   Thumb Code    34  logictask.o(i.receive_msg_from_com2)
+    receive_msg_from_com4                    0x080032dd   Thumb Code    64  logictask.o(i.receive_msg_from_com4)
+    send_msg_to_com4                         0x0800332d   Thumb Code    32  logictask.o(i.send_msg_to_com4)
+    send_to_com1                             0x08003355   Thumb Code    42  target2.o(i.send_to_com1)
+    send_to_com2                             0x08003385   Thumb Code    42  com2_task.o(i.send_to_com2)
+    send_to_com4                             0x080033b5   Thumb Code    42  plc.o(i.send_to_com4)
+    start_task                               0x080033e5   Thumb Code    88  main.o(i.start_task)
+    uart4_init                               0x0800345d   Thumb Code   178  usart4.o(i.uart4_init)
+    usart1_init                              0x08003519   Thumb Code   154  usart1.o(i.usart1_init)
+    usart2_init                              0x080035bd   Thumb Code   166  usart2.o(i.usart2_init)
+    usart3_init                              0x0800366d   Thumb Code   196  usart3.o(i.usart3_init)
+    usart_init                               0x08003739   Thumb Code   174  main.o(i.usart_init)
+    table_week                               0x08003810   Data          12  rtc.o(.constdata)
+    mon_table                                0x0800381c   Data          12  rtc.o(.constdata)
+    OSUnMapTbl                               0x08003828   Data         256  os_core.o(.constdata)
+    Region$$Table$$Base                      0x08003928   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08003948   Number         0  anon$$obj.o(Region$$Table)
     conf_status                              0x20000000   Data           1  logictask.o(.data)
     Com1_rx_sem                              0x20000004   Data           4  logictask.o(.data)
     Com1_tx_sem                              0x20000008   Data           4  logictask.o(.data)
@@ -1682,26 +1679,26 @@ Image Symbol Table
     com2                                     0x20000b5c   Data          16  usart.o(.bss)
     com3                                     0x20000b6c   Data          16  usart.o(.bss)
     com4                                     0x20000b7c   Data          16  usart.o(.bss)
-    DMA_RX_BUF1                              0x20000b8c   Data         128  usart.o(.bss)
-    DMA_TX_BUF1                              0x20000c0c   Data         128  usart.o(.bss)
-    DMA_RX_BUF2                              0x20000c8c   Data         128  usart.o(.bss)
-    DMA_TX_BUF2                              0x20000d0c   Data         128  usart.o(.bss)
-    DMA_RX_BUF3                              0x20000d8c   Data         128  usart.o(.bss)
-    DMA_TX_BUF3                              0x20000e0c   Data         128  usart.o(.bss)
-    DMA_RX_BUF4                              0x20000e8c   Data         128  usart.o(.bss)
-    DMA_TX_BUF4                              0x20000f0c   Data         128  usart.o(.bss)
-    STM32_calendar                           0x20000f8c   Data          10  rtc.o(.bss)
-    DW_calendar                              0x20000f96   Data          10  rtc.o(.bss)
-    STMFLASH_BUF                             0x20000fa0   Data        1024  flash.o(.bss)
-    OSEventTbl                               0x200013a0   Data         640  os_core.o(.bss)
-    OSFlagTbl                                0x20001620   Data          80  os_core.o(.bss)
-    OSTaskStatStk                            0x20001670   Data         512  os_core.o(.bss)
-    OSTaskIdleStk                            0x20001870   Data         512  os_core.o(.bss)
-    OSTCBPrioTbl                             0x20001a70   Data         256  os_core.o(.bss)
-    OSTCBTbl                                 0x20001b70   Data        1008  os_core.o(.bss)
-    OSQTbl                                   0x20001f60   Data         120  os_core.o(.bss)
-    __libspace_start                         0x20001fd8   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20002038   Data           0  libspace.o(.bss)
+    DMA_RX_BUF1                              0x20000b8c   Data         255  usart.o(.bss)
+    DMA_TX_BUF1                              0x20000c8b   Data         255  usart.o(.bss)
+    DMA_RX_BUF2                              0x20000d8a   Data         255  usart.o(.bss)
+    DMA_TX_BUF2                              0x20000e89   Data         255  usart.o(.bss)
+    DMA_RX_BUF3                              0x20000f88   Data         255  usart.o(.bss)
+    DMA_TX_BUF3                              0x20001087   Data         255  usart.o(.bss)
+    DMA_RX_BUF4                              0x20001186   Data         255  usart.o(.bss)
+    DMA_TX_BUF4                              0x20001285   Data         255  usart.o(.bss)
+    STM32_calendar                           0x20001384   Data          10  rtc.o(.bss)
+    DW_calendar                              0x2000138e   Data          10  rtc.o(.bss)
+    STMFLASH_BUF                             0x20001398   Data        1024  flash.o(.bss)
+    OSEventTbl                               0x20001798   Data         640  os_core.o(.bss)
+    OSFlagTbl                                0x20001a18   Data          80  os_core.o(.bss)
+    OSTaskStatStk                            0x20001a68   Data         512  os_core.o(.bss)
+    OSTaskIdleStk                            0x20001c68   Data         512  os_core.o(.bss)
+    OSTCBPrioTbl                             0x20001e68   Data         256  os_core.o(.bss)
+    OSTCBTbl                                 0x20001f68   Data        1008  os_core.o(.bss)
+    OSQTbl                                   0x20002358   Data         120  os_core.o(.bss)
+    __libspace_start                         0x200023d0   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20002430   Data           0  libspace.o(.bss)
 
 
 
@@ -1711,9 +1708,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000131
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003aac, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x000039dc])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003aa0, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x000039d0])
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00003954, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00003948, Max: 0x00040000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1912,55 +1909,55 @@ Memory Map of the image
     0x08002534   0x00000028   Code   RO          813    i.SysTick_CLKSourceConfig  misc.o
     0x0800255c   0x00000010   Code   RO          435    i.SysTick_Handler   delay.o
     0x0800256c   0x00000060   Code   RO          386    i.SystemInit        system_stm32f10x.o
-    0x080025cc   0x00000260   Code   RO          155    i.Target1_task      logictask.o
-    0x0800282c   0x00000058   Code   RO          214    i.Target2_task      target2.o
-    0x08002884   0x00000058   Code   RO          233    i.Target3_task      plc.o
-    0x080028dc   0x00000058   Code   RO          313    i.Target4_task      com2_task.o
-    0x08002934   0x0000007c   Code   RO          790    i.UART4_IRQHandler  usart4.o
-    0x080029b0   0x0000007c   Code   RO          545    i.USART1_IRQHandler  usart1.o
-    0x08002a2c   0x00000090   Code   RO          564    i.USART2_IRQHandler  usart2.o
-    0x08002abc   0x00000084   Code   RO          583    i.USART3_IRQHandler  usart3.o
-    0x08002b40   0x0000001e   Code   RO         1160    i.USART_ClearITPendingBit  stm32f10x_usart.o
-    0x08002b5e   0x00000018   Code   RO         1163    i.USART_Cmd         stm32f10x_usart.o
-    0x08002b76   0x00000012   Code   RO         1164    i.USART_DMACmd      stm32f10x_usart.o
-    0x08002b88   0x0000001a   Code   RO         1166    i.USART_GetFlagStatus  stm32f10x_usart.o
-    0x08002ba2   0x00000054   Code   RO         1167    i.USART_GetITStatus  stm32f10x_usart.o
-    0x08002bf6   0x0000004a   Code   RO         1169    i.USART_ITConfig    stm32f10x_usart.o
-    0x08002c40   0x000000d8   Code   RO         1170    i.USART_Init        stm32f10x_usart.o
-    0x08002d18   0x00000008   Code   RO         1180    i.USART_SendData    stm32f10x_usart.o
-    0x08002d20   0x00000004   Code   RO          338    i.UsageFault_Handler  stm32f10x_it.o
-    0x08002d24   0x00000022   Code   RO          253    i.check_cs          _3762.o
-    0x08002d46   0x00000002   PAD
-    0x08002d48   0x0000005c   Code   RO          436    i.delay_init        delay.o
-    0x08002da4   0x00000048   Code   RO          437    i.delay_ms          delay.o
-    0x08002dec   0x0000004c   Code   RO          438    i.delay_us          delay.o
-    0x08002e38   0x00000002   Code   RO          156    i.device_test       logictask.o
-    0x08002e3a   0x00000006   Code   RO          254    i.get_AFN_code      _3762.o
-    0x08002e40   0x0000000e   Code   RO          255    i.get_F_code        _3762.o
-    0x08002e4e   0x0000001e   Code   RO          256    i.get_cs            _3762.o
-    0x08002e6c   0x00000028   Code   RO            2    i.main              main.o
-    0x08002e94   0x00000018   Code   RO          257    i.main_node_data_init  _3762.o
-    0x08002eac   0x00000058   Code   RO          778    i.plcmodule_init    plcmodule.o
-    0x08002f04   0x00000344   Code   RO          259    i.read_3762_str     _3762.o
-    0x08003248   0x00000050   Code   RO          157    i.receive_msg_from_com1  logictask.o
-    0x08003298   0x00000050   Code   RO          158    i.receive_msg_from_com2  logictask.o
-    0x080032e8   0x00000050   Code   RO          159    i.receive_msg_from_com4  logictask.o
-    0x08003338   0x00000028   Code   RO          161    i.send_msg_to_com4  logictask.o
-    0x08003360   0x00000030   Code   RO          215    i.send_to_com1      target2.o
-    0x08003390   0x00000030   Code   RO          314    i.send_to_com2      com2_task.o
-    0x080033c0   0x00000030   Code   RO          234    i.send_to_com4      plc.o
-    0x080033f0   0x00000078   Code   RO            3    i.start_task        main.o
-    0x08003468   0x000000bc   Code   RO          791    i.uart4_init        usart4.o
-    0x08003524   0x000000a4   Code   RO          546    i.usart1_init       usart1.o
-    0x080035c8   0x000000b0   Code   RO          565    i.usart2_init       usart2.o
-    0x08003678   0x000000cc   Code   RO          586    i.usart3_init       usart3.o
-    0x08003744   0x000000d8   Code   RO            4    i.usart_init        main.o
-    0x0800381c   0x00000018   Data   RO          683    .constdata          rtc.o
-    0x08003834   0x00000100   Data   RO         1897    .constdata          os_core.o
-    0x08003934   0x00000020   Data   RO         2757    Region$$Table       anon$$obj.o
+    0x080025cc   0x0000027c   Code   RO          155    i.Target1_task      logictask.o
+    0x08002848   0x00000058   Code   RO          214    i.Target2_task      target2.o
+    0x080028a0   0x00000058   Code   RO          233    i.Target3_task      plc.o
+    0x080028f8   0x00000058   Code   RO          313    i.Target4_task      com2_task.o
+    0x08002950   0x0000007c   Code   RO          790    i.UART4_IRQHandler  usart4.o
+    0x080029cc   0x0000007c   Code   RO          545    i.USART1_IRQHandler  usart1.o
+    0x08002a48   0x00000090   Code   RO          564    i.USART2_IRQHandler  usart2.o
+    0x08002ad8   0x00000084   Code   RO          583    i.USART3_IRQHandler  usart3.o
+    0x08002b5c   0x0000001e   Code   RO         1160    i.USART_ClearITPendingBit  stm32f10x_usart.o
+    0x08002b7a   0x00000018   Code   RO         1163    i.USART_Cmd         stm32f10x_usart.o
+    0x08002b92   0x00000012   Code   RO         1164    i.USART_DMACmd      stm32f10x_usart.o
+    0x08002ba4   0x0000001a   Code   RO         1166    i.USART_GetFlagStatus  stm32f10x_usart.o
+    0x08002bbe   0x00000054   Code   RO         1167    i.USART_GetITStatus  stm32f10x_usart.o
+    0x08002c12   0x0000004a   Code   RO         1169    i.USART_ITConfig    stm32f10x_usart.o
+    0x08002c5c   0x000000d8   Code   RO         1170    i.USART_Init        stm32f10x_usart.o
+    0x08002d34   0x00000008   Code   RO         1180    i.USART_SendData    stm32f10x_usart.o
+    0x08002d3c   0x00000004   Code   RO          338    i.UsageFault_Handler  stm32f10x_it.o
+    0x08002d40   0x00000022   Code   RO          253    i.check_cs          _3762.o
+    0x08002d62   0x00000002   PAD
+    0x08002d64   0x0000005c   Code   RO          436    i.delay_init        delay.o
+    0x08002dc0   0x00000048   Code   RO          437    i.delay_ms          delay.o
+    0x08002e08   0x0000004c   Code   RO          438    i.delay_us          delay.o
+    0x08002e54   0x00000002   Code   RO          156    i.device_test       logictask.o
+    0x08002e56   0x00000006   Code   RO          254    i.get_AFN_code      _3762.o
+    0x08002e5c   0x0000000e   Code   RO          255    i.get_F_code        _3762.o
+    0x08002e6a   0x0000001e   Code   RO          256    i.get_cs            _3762.o
+    0x08002e88   0x00000028   Code   RO            2    i.main              main.o
+    0x08002eb0   0x00000018   Code   RO          257    i.main_node_data_init  _3762.o
+    0x08002ec8   0x00000058   Code   RO          778    i.plcmodule_init    plcmodule.o
+    0x08002f20   0x00000344   Code   RO          259    i.read_3762_str     _3762.o
+    0x08003264   0x00000050   Code   RO          157    i.receive_msg_from_com1  logictask.o
+    0x080032b4   0x00000028   Code   RO          158    i.receive_msg_from_com2  logictask.o
+    0x080032dc   0x00000050   Code   RO          159    i.receive_msg_from_com4  logictask.o
+    0x0800332c   0x00000028   Code   RO          161    i.send_msg_to_com4  logictask.o
+    0x08003354   0x00000030   Code   RO          215    i.send_to_com1      target2.o
+    0x08003384   0x00000030   Code   RO          314    i.send_to_com2      com2_task.o
+    0x080033b4   0x00000030   Code   RO          234    i.send_to_com4      plc.o
+    0x080033e4   0x00000078   Code   RO            3    i.start_task        main.o
+    0x0800345c   0x000000bc   Code   RO          791    i.uart4_init        usart4.o
+    0x08003518   0x000000a4   Code   RO          546    i.usart1_init       usart1.o
+    0x080035bc   0x000000b0   Code   RO          565    i.usart2_init       usart2.o
+    0x0800366c   0x000000cc   Code   RO          586    i.usart3_init       usart3.o
+    0x08003738   0x000000d8   Code   RO            4    i.usart_init        main.o
+    0x08003810   0x00000018   Data   RO          683    .constdata          rtc.o
+    0x08003828   0x00000100   Data   RO         1897    .constdata          os_core.o
+    0x08003928   0x00000020   Data   RO         2757    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00002638, Max: 0x0000c000, ABSOLUTE, COMPRESSED[0x00000088])
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00002a30, Max: 0x0000c000, ABSOLUTE, COMPRESSED[0x00000088])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1976,13 +1973,13 @@ Memory Map of the image
     0x20000110   0x00000048   Data   RW         1898    .data               os_core.o
     0x20000158   0x00000900   Zero   RW            5    .bss                main.o
     0x20000a58   0x000000f4   Zero   RW          260    .bss                _3762.o
-    0x20000b4c   0x00000440   Zero   RW          486    .bss                usart.o
-    0x20000f8c   0x00000014   Zero   RW          682    .bss                rtc.o
-    0x20000fa0   0x00000400   Zero   RW          744    .bss                flash.o
-    0x200013a0   0x00000c38   Zero   RW         1896    .bss                os_core.o
-    0x20001fd8   0x00000060   Zero   RW         2634    .bss                c_w.l(libspace.o)
-    0x20002038   0x00000200   Zero   RW          418    HEAP                startup_stm32f10x_hd.o
-    0x20002238   0x00000400   Zero   RW          417    STACK               startup_stm32f10x_hd.o
+    0x20000b4c   0x00000838   Zero   RW          486    .bss                usart.o
+    0x20001384   0x00000014   Zero   RW          682    .bss                rtc.o
+    0x20001398   0x00000400   Zero   RW          744    .bss                flash.o
+    0x20001798   0x00000c38   Zero   RW         1896    .bss                os_core.o
+    0x200023d0   0x00000060   Zero   RW         2634    .bss                c_w.l(libspace.o)
+    0x20002430   0x00000200   Zero   RW          418    HEAP                startup_stm32f10x_hd.o
+    0x20002630   0x00000400   Zero   RW          417    STACK               startup_stm32f10x_hd.o
 
 
 ==============================================================================
@@ -1999,8 +1996,8 @@ Image component sizes
        308         32          0          2          0       1879   dma.o
        310         10          0          0       1024       3397   flash.o
         60         10          0          1          0        740   interrupt.o
-       890        104          0         40          0       5182   logictask.o
-       464        108          0          0       2304     261046   main.o
+       878         96          0         40          0       5242   logictask.o
+       464        108          0          0       2304     261054   main.o
        172         22          0          0          0       2033   misc.o
       2180        396        256         72       3128      20799   os_core.o
        180         36          0          0          0        332   os_cpu_a.o
@@ -2027,14 +2024,14 @@ Image component sizes
         12          0          0          0          0        449   sys.o
        328         28          0         20          0       2137   system_stm32f10x.o
        136         18          0          0          0       1533   target2.o
-       176         48          0          0       1088       2834   usart.o
+       176         48          0          0       2104       2842   usart.o
        288         24          0          0          0       1254   usart1.o
        320         26          0          0          0       1274   usart2.o
        336         22          0          0          0       1282   usart3.o
        312         24          0          0          0       1244   usart4.o
 
     ----------------------------------------------------------------------
-     13396       1442        616        344       9344     389415   Object Totals
+     13384       1434        616        344      10360     389491   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         26          0          0          1          0          0   (incl. Padding)
 
@@ -2086,15 +2083,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     14060       1458        616        344       9440     381631   Grand Totals
-     14060       1458        616        136       9440     381631   ELF Image Totals (compressed)
-     14060       1458        616        136          0          0   ROM Totals
+     14048       1450        616        344      10456     381707   Grand Totals
+     14048       1450        616        136      10456     381707   ELF Image Totals (compressed)
+     14048       1450        616        136          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                14676 (  14.33kB)
-    Total RW  Size (RW Data + ZI Data)              9784 (   9.55kB)
-    Total ROM Size (Code + RO Data + RW Data)      14812 (  14.46kB)
+    Total RO  Size (Code + RO Data)                14664 (  14.32kB)
+    Total RW  Size (RW Data + ZI Data)             10800 (  10.55kB)
+    Total ROM Size (Code + RO Data + RW Data)      14800 (  14.45kB)
 
 ==============================================================================
 

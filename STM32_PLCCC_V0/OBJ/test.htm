@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\test.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\test.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Fri Jul 06 08:54:42 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Mon Jul 09 14:31:34 2018
 <BR><P>
 <H3>Maximum Stack Usage =        144 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -484,8 +484,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_3762_str
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_msg_to_com4
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com4
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com2
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com1
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com1
 </UL>
 
 <P><STRONG><a name="[62]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
@@ -863,8 +862,8 @@ Global Symbols
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OS_EventTaskRemove
 </UL>
 <BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com4
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com2
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com1
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com2
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com1
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Target4_task
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Target3_task
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Target2_task
@@ -884,8 +883,7 @@ Global Symbols
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_msg_to_com4
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com4
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com2
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com1
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com1
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Target4_task
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Target3_task
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Target2_task
@@ -1423,7 +1421,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(.text)
 </UL>
-<P><STRONG><a name="[4f]"></a>Target1_task</STRONG> (Thumb, 572 bytes, Stack size 0 bytes, logictask.o(i.Target1_task))
+<P><STRONG><a name="[4f]"></a>Target1_task</STRONG> (Thumb, 598 bytes, Stack size 0 bytes, logictask.o(i.Target1_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100 + Unknown Stack Size
 <LI>Call Chain = Target1_task &rArr; read_3762_str &rArr; STMFLASH_Write &rArr; STMFLASH_Write_NoCheck &rArr; FLASH_ProgramHalfWord &rArr; FLASH_WaitForLastOperation
 </UL>
@@ -1437,8 +1435,8 @@ Global Symbols
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_msg_to_com4
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com4
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com2
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com1
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com2
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;receive_msg_from_com1
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;device_test
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.start_task)
@@ -1693,7 +1691,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Target1_task
 </UL>
 
-<P><STRONG><a name="[dd]"></a>receive_msg_from_com1</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, logictask.o(i.receive_msg_from_com1))
+<P><STRONG><a name="[de]"></a>receive_msg_from_com1</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, logictask.o(i.receive_msg_from_com1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76 + Unknown Stack Size
 <LI>Call Chain = receive_msg_from_com1 &rArr; OSSemPost &rArr; OS_EventTaskRdy &rArr; OS_EventTaskRemove
 </UL>
@@ -1704,13 +1702,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Target1_task
 </UL>
 
-<P><STRONG><a name="[de]"></a>receive_msg_from_com2</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, logictask.o(i.receive_msg_from_com2))
-<BR><BR>[Stack]<UL><LI>Max Depth = 76 + Unknown Stack Size
-<LI>Call Chain = receive_msg_from_com2 &rArr; OSSemPost &rArr; OS_EventTaskRdy &rArr; OS_EventTaskRemove
+<P><STRONG><a name="[dd]"></a>receive_msg_from_com2</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, logictask.o(i.receive_msg_from_com2))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
+<LI>Call Chain = receive_msg_from_com2 &rArr; OSSemPend &rArr; OS_Sched
 </UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OSSemPost
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OSSemPend
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OSSemPend
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Target1_task
 </UL>

@@ -172,7 +172,40 @@
           <Name>-U -O206 -S8 -C0 -P00 -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7  -FN1 -FC1000 -FD20000000 -FF0STM32F10x_512 -FL080000 -FS08000000 -FP0($$Device:STM32F103RC$Flash\STM32F10x_512.FLM)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint/>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>144</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134227720</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>\\.psf\Home\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\LogicTask.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test\/.psf/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/LogicTask.c\144</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>189</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134227886</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>\\.psf\Home\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\LogicTask.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test\/.psf/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/LogicTask.c\189</Expression>
+        </Bp>
+      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -203,6 +236,11 @@
           <count>5</count>
           <WinNumber>1</WinNumber>
           <ItemText>com4</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>OSTime</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

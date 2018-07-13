@@ -27,7 +27,7 @@ I (..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\stm32f10x_usart.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\misc.h)(0x5B0FB949)
 I (..\HARDWARE\LED\led.h)(0x5B0FB948)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\HARDWARE\usart1\usart1.h)(0x5B0FB948)
 I (..\HARDWARE\usart2\usart2.h)(0x5B0FB948)
 I (..\HARDWARE\usart3\usart3.h)(0x5B0FB948)
@@ -37,7 +37,7 @@ I (..\HARDWARE\rtc\rtc.h)(0x5B0FB948)
 I (..\HARDWARE\flash\flash.h)(0x5B0FB948)
 I (..\HARDWARE\interrupt\interrupt.h)(0x5B0FB948)
 I (..\HARDWARE\def\def.h)(0x5B3C7C7A)
-F (.\LogicTask.c)(0x5B3C7CE8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\logictask.o --omf_browse ..\obj\logictask.crf --depend ..\obj\logictask.d)
+F (.\LogicTask.c)(0x5B430142)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\logictask.o --omf_browse ..\obj\logictask.crf --depend ..\obj\logictask.d)
 I (..\HARDWARE\LED\led.h)(0x5B0FB948)
 I (..\CORE\stm32f10x.h)(0x5B0FB948)
 I (..\CORE\core_cm3.h)(0x5B0FB948)
@@ -55,7 +55,7 @@ I (..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\stm32f10x_usart.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\misc.h)(0x5B0FB949)
 I (..\SYSTEM\sys\sys.h)(0x5B0FB949)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\UCOSII\CONFIG\includes.h)(0x5B0FB949)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
@@ -105,7 +105,7 @@ I (..\UCOSII\PORT\os_cpu.h)(0x5B0FB949)
 I (..\SYSTEM\sys\sys.h)(0x5B0FB949)
 I (..\HARDWARE\rtc\rtc.h)(0x5B0FB948)
 I (..\HARDWARE\def\def.h)(0x5B3C7C7A)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 F (.\plc.c)(0x5B0FB949)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\plc.o --omf_browse ..\obj\plc.crf --depend ..\obj\plc.d)
 I (..\SYSTEM\sys\sys.h)(0x5B0FB949)
 I (..\CORE\stm32f10x.h)(0x5B0FB948)
@@ -132,7 +132,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x53463A44)
 I (..\UCOSII\CORE\ucos_ii.h)(0x5B0FB949)
 I (..\UCOSII\CONFIG\os_cfg.h)(0x5B0FB949)
 I (..\UCOSII\PORT\os_cpu.h)(0x5B0FB949)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\HARDWARE\def\def.h)(0x5B3C7C7A)
 F (.\_3762.c)(0x5B3DB17E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\_3762.o --omf_browse ..\obj\_3762.crf --depend ..\obj\_3762.d)
 I (_3762.h)(0x5B3C7AFD)
@@ -190,7 +190,7 @@ I (..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\stm32f10x_usart.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\misc.h)(0x5B0FB949)
 I (..\HARDWARE\def\def.h)(0x5B3C7C7A)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 F (..\CORE\stm32f10x_it.c)(0x5B0FB948)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
 I (..\CORE\stm32f10x_it.h)(0x5B0FB948)
 I (..\CORE\stm32f10x.h)(0x5B0FB948)
@@ -272,7 +272,7 @@ I (..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\stm32f10x_usart.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\misc.h)(0x5B0FB949)
 F (..\SYSTEM\usart\usart.c)(0x5B0FB949)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\UCOSII\CONFIG\includes.h)(0x5B0FB949)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
@@ -362,7 +362,7 @@ I (..\HARDWARE\LED\led.h)(0x5B0FB948)
 I (..\HARDWARE\BSP\bsp.h)(0x5B0FB948)
 I (..\HARDWARE\def\def.h)(0x5B3C7C7A)
 F (..\HARDWARE\usart1\usart1.c)(0x5B0FB948)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart1.o --omf_browse ..\obj\usart1.crf --depend ..\obj\usart1.d)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\UCOSII\CONFIG\includes.h)(0x5B0FB949)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
@@ -391,7 +391,7 @@ I (..\STM32F10X_FWLIB\inc\misc.h)(0x5B0FB949)
 I (..\HARDWARE\usart1\usart1.h)(0x5B0FB948)
 I (..\HARDWARE\DMA\dma.h)(0x5B0FB948)
 F (..\HARDWARE\usart2\usart2.c)(0x5B19ECB0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart2.o --omf_browse ..\obj\usart2.crf --depend ..\obj\usart2.d)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\UCOSII\CONFIG\includes.h)(0x5B0FB949)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
@@ -420,7 +420,7 @@ I (..\STM32F10X_FWLIB\inc\misc.h)(0x5B0FB949)
 I (..\HARDWARE\usart2\usart2.h)(0x5B0FB948)
 I (..\HARDWARE\DMA\dma.h)(0x5B0FB948)
 F (..\HARDWARE\usart3\usart3.c)(0x5B0FB948)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart3.o --omf_browse ..\obj\usart3.crf --depend ..\obj\usart3.d)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\UCOSII\CONFIG\includes.h)(0x5B0FB949)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
@@ -533,7 +533,7 @@ I (..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\stm32f10x_usart.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\misc.h)(0x5B0FB949)
 I (..\SYSTEM\delay\delay.h)(0x5B0FB949)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\HARDWARE\rtc\rtc.h)(0x5B0FB948)
 I (..\HARDWARE\display\display.h)(0x5B0FB948)
 F (..\HARDWARE\flash\flash.c)(0x5B0FB948)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\flash.o --omf_browse ..\obj\flash.crf --depend ..\obj\flash.d)
@@ -555,7 +555,7 @@ I (..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\stm32f10x_usart.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\misc.h)(0x5B0FB949)
 I (..\SYSTEM\delay\delay.h)(0x5B0FB949)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\UCOSII\CONFIG\includes.h)(0x5B0FB949)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)
@@ -594,7 +594,7 @@ I (..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\stm32f10x_usart.h)(0x5B0FB949)
 I (..\STM32F10X_FWLIB\inc\misc.h)(0x5B0FB949)
 F (..\HARDWARE\usart4\usart4.c)(0x5B10F50E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\USER -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\STM32F10X_FWLIB\inc -I..\UCOSII\CONFIG -I..\UCOSII\CORE -I..\UCOSII\PORT -I..\HARDWARE\LED -I..\HARDWARE\BSP -I..\HARDWARE\usart1 -I..\HARDWARE\DMA -I..\HARDWARE\usart2 -I..\HARDWARE\usart3 -I..\HARDWARE\card -I..\HARDWARE\display -I..\HARDWARE\meter -I..\HARDWARE\relay -I..\HARDWARE\interrupt -I..\HARDWARE\rtc -I..\HARDWARE\flash -I..\HARDWARE\gun -I..\HARDWARE\def -I..\HARDWARE\usart4 -I..\HARDWARE\PLCmodule-I \\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart4.o --omf_browse ..\obj\usart4.crf --depend ..\obj\usart4.d)
-I (..\SYSTEM\usart\usart.h)(0x5B0FB949)
+I (..\SYSTEM\usart\usart.h)(0x5B42F626)
 I (..\UCOSII\CONFIG\includes.h)(0x5B0FB949)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x53463A44)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53463A44)

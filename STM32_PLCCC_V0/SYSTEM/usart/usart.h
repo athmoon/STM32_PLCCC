@@ -2,8 +2,8 @@
 #define __USART_H
 #include "includes.h"
 
-#define DMA_RX_BUFF_LEN 128
-#define DMA_TX_BUFF_LEN 128
+#define DMA_RX_BUFF_LEN 255
+#define DMA_TX_BUFF_LEN 255
 
 typedef struct 
 {
