@@ -29,7 +29,7 @@ u8 AFN10_F2[] = {0x68, 0x12, 0x00, 0x41, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x1
 u8 AFN05_F3[] = {0x68, 0x1D, 0x00, 0x41, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x05, 0x04, 0x00, 0x00};
 
 // 数据转发指令包头
-u8 AFN13_F1[] = {0x68, 0x2B, 0x00, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+u8 AFN13_F1_head[] = {0x68, 0x2B, 0x00, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 	
 u8 get_cs(u8 *data, u8 len);
 u8 check_cs(u8 *src_str, u8 src_len);
@@ -41,6 +41,41 @@ MainNode mNode;
 MainNode memory_data;
 ReadResult readResult;
 _3762_CMD cmd_struct;
+
+/// AFN13F1转发指令
+u8 AFN13_F1_translate_645(u8 *dst, u8 *src, u8 len) {
+	u8 len_3762 = len + 31;
+	memcpy(dst, AFN13_F1_head, 16);//包头
+	dst[1] = len_3762;//修改长度
+	memcpy(&dst[16], &src[1], 6);// 从节点地址
+	dst[22] = AFN13;// AFN13
+	dst[23] = 0x01;// F1
+	dst[24] = 0x00;
+	dst[25] = 0x00;// 通讯协议类型
+	dst[26] = 0x00;// 通讯验收相关性标志
+	dst[27] = 0x00;// 从节点附属节点数量n
+	dst[28] = len;// 数据长度
+	memcpy(&dst[29], src, len);// 数据
+	dst[len_3762 - 2] = get_cs(dst, len_3762 - 2);
+	dst[len_3762 - 1] = 0x16;
+	
+	return len_3762;// 返回3762数据总长度
+}
+
+/// AFN13F1接受指令
+u8 AFN13_F1_recive(u8 *dst, u8 *src, u8 len_3762) {
+	u8 len;
+	// 1、计算校验和
+	if (!check_cs(src, len_3762)) return 0;
+	// 2、校验功能码
+	if (!(src[22] == 0x13 && src[23] == 0x01 && src[24] == 0x00)) return 0;
+	// 3、获取数据长度
+	len = src[28];
+	// 4、将数据copy至buffer
+	memcpy(dst, &src[29], len);
+	// 5、返回数据长度
+	return len;
+}
 	
 /// 376.2命令打包函数，将指令打包成字符串数据帧,第一个参数传入3762指令结构体，第二个参数传入缓存区地址，返回数据长度
 u8 pack_3762_str(_3762_CMD cmd, u8 *dst) {

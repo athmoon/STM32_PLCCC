@@ -116,4 +116,7 @@ extern ReadResult readResult;
 u8 read_3762_str(u8 *src_str, u8 src_len);
 void main_node_data_init(void);
 
+u8 AFN13_F1_translate_645(u8 *dst, u8 *src, u8 len);
+u8 AFN13_F1_recive(u8 *dst, u8 *src, u8 len_3762);
+
 #endif

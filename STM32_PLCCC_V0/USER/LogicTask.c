@@ -21,6 +21,7 @@ typedef enum {
 	WorkStatus_Starting = 1,
 	WorkStatus_Config,
 	WorkStatus_Idle,
+	WorkStatus_Reciving,
 	WorkStatus_Error,
 	WorkStatus_Test,
 	WorkStatus_SonTest,
@@ -201,7 +202,7 @@ void Target1_task(void *pdata)
 					
 					case ConfigStatus_readData:// 读节点数据
 						//将节点信息存储到flash
-						workStatus = WorkStatus_Test;
+						workStatus = WorkStatus_Idle;
 						break;
 						
 					default:
@@ -211,19 +212,23 @@ void Target1_task(void *pdata)
 				break;
 			case WorkStatus_Idle://空闲状态
 				// 如果收到载波主节点上行帧，进行解析，如果是主动上行帧，进行回复；如果是被动上行帧，将结果返回给上位机
+				receive_msg_from_com4(DEV_TIMEOUT_10);
 				// 暂时使用串口2接受上位机信息。
 				// 如果收到上位机的指令，先进行解析，如果是对从节点的控制或查询指令，按照376.2透传转发指令，下发给载波主节点
 				receive_msg_from_com2(DEV_TIMEOUT_10);
+				break;
+			case WorkStatus_Reciving:
+				if (receive_msg_from_com4(DEV_TIMEOUT_10)) {
+					AFN13_F1_recive(com2.DMA_TX_BUF, com4.DMA_RX_BUF, com4.lenRec);
+				} else {
+					//计时操作，超时退出接受状态
+				}
 				break;
 			case WorkStatus_Error://异常状态
 				break;
 			case WorkStatus_Test://测试状态，调试使用
 				// 如果接收到串口1的数据，转发给串口4
 				receive_msg_from_com1(DEV_TIMEOUT_10);
-				
-				// 如果接收到串口4的数据，转发给串口1
-				receive_msg_from_com4(DEV_TIMEOUT_10);
-				// receive_msg_from_com2(DEV_TIMEOUT_10);
 				break;
 			default:
 				break;
@@ -259,10 +264,10 @@ u8 receive_msg_from_com2(INT32U timeout) {
 	
 	OSSemPend(Com2_rx_sem, timeout, &err);// 读取信号量
 	if (err == OS_ERR_NONE) {
-		
-//		memcpy(com1.DMA_TX_BUF, com2.DMA_RX_BUF, com2.lenRec);
-//		com1.lenSend = com2.lenRec;
-//		OSSemPost(Com1_tx_sem);
+		// 封包成376.2转发给主节点
+		com4.lenSend = AFN13_F1_translate_645(com4.DMA_TX_BUF, com2.DMA_RX_BUF, com2.lenRec);
+		OSSemPost(Com4_tx_sem);// 发送消息给串口4，开始发送数据。
+		workStatus = WorkStatus_Reciving;
 		return 1;
 	} else {
 		return 0;
@@ -276,9 +281,7 @@ u8 receive_msg_from_com4(INT32U timeout) {
 	
 	OSSemPend(Com4_rx_sem, timeout, &err);// 读取信号量
 	if (err == OS_ERR_NONE) {
-			memcpy(com1.DMA_TX_BUF, com4.DMA_RX_BUF, com4.lenRec);// 将串口4接受缓冲区的数据拷贝到串口1的发送缓冲区
-			com1.lenSend = com4.lenRec;
-			OSSemPost(Com1_tx_sem);// 发送消息给串口1，开始发送数据。
+			
 		return 1;
 	} else {
 		return 0;
