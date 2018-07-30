@@ -442,6 +442,11 @@
               <FileType>1</FileType>
               <FilePath>.\com2_task.c</FilePath>
             </File>
+            <File>
+              <FileName>server_cmd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\server_cmd.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -12,6 +12,7 @@
 #include "flash.h"
 #include "interrupt.h"
 #include "def.h"
+#include "server_cmd.h"
 
 //////////////////////////////硬件初始化参数//////////////////////////////////
 extern u8 DMA_RX_BUF1[DMA_RX_BUFF_LEN];
@@ -30,6 +31,7 @@ extern OS_EVENT * Com2_rx_sem;
 extern OS_EVENT * Com2_tx_sem;
 extern OS_EVENT * Com4_rx_sem;
 extern OS_EVENT * Com4_tx_sem;
+extern ServerCmd com2_cmd;
 void OSSem_init(void);
 
 void usart_init(void);
@@ -128,6 +130,7 @@ void OSSem_init(void) {
 	Com2_tx_sem = OSSemCreate(0);
 	Com4_rx_sem = OSSemCreate(0);
 	Com4_tx_sem = OSSemCreate(0);
+	ServerCmd_init(&com2_cmd);
 }
 
 void usart_init(void) {

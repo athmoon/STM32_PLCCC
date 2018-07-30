@@ -38,3 +38,4 @@
 ..\obj\main.o: ..\HARDWARE\flash\flash.h
 ..\obj\main.o: ..\HARDWARE\interrupt\interrupt.h
 ..\obj\main.o: ..\HARDWARE\def\def.h
+..\obj\main.o: server_cmd.h

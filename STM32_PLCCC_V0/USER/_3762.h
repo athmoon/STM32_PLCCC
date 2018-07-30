@@ -118,5 +118,6 @@ void main_node_data_init(void);
 
 u8 AFN13_F1_translate_645(u8 *dst, u8 *src, u8 len);
 u8 AFN13_F1_recive(u8 *dst, u8 *src, u8 len_3762);
+u8 get_cs(u8 *data, u8 len);
 
 #endif

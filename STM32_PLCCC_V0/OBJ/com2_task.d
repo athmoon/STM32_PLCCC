@@ -28,3 +28,4 @@
 ..\obj\com2_task.o: ..\STM32F10X_FWLIB\inc\misc.h
 ..\obj\com2_task.o: ..\HARDWARE\def\def.h
 ..\obj\com2_task.o: ..\SYSTEM\usart\usart.h
+..\obj\com2_task.o: server_cmd.h

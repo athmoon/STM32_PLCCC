@@ -5,6 +5,7 @@
 "..\obj\plc.o"
 "..\obj\_3762.o"
 "..\obj\com2_task.o"
+"..\obj\server_cmd.o"
 "..\obj\stm32f10x_it.o"
 "..\obj\system_stm32f10x.o"
 "..\obj\startup_stm32f10x_hd.o"
