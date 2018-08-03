@@ -26,11 +26,7 @@ u8 check_data_tail(u8 *src, u8 buf_len) {
 }
 
 u8 check_data_sum(u8 *src, u8 buf_len){
-	u8 i = 0;
-	u8 sum = 0;
-	for (; i < buf_len - 3; i++) {
-		sum += src[i];
-	}
+	u8 sum = get_cs(src, buf_len - 3);
 	if (sum == src[buf_len - 3]) return 1;
 	return 0;
 }
@@ -49,7 +45,7 @@ void data_handle(ServerCmd *sc) {
 			break;
 		case SERVER_COMMUNICAT:// 645自定义指令
 			// 对645指令包装一层376.2中的13F1数据转发指令
-			package645_to_3762_afn13f1(sc->databuf, sc->datalen);
+			package645_to_3762_afn13f1(sc->databuf, &sc->datalen);
 			// 转发
 			OSSemPost(sc->sem_server_cmd);
 			break;
@@ -64,14 +60,14 @@ void data_handle(ServerCmd *sc) {
 	}
 }
 
-void package645_to_3762_afn13f1(u8 *src, u8 len) {
+void package645_to_3762_afn13f1(u8 *src, u8 *len) {
 	u8 addr[6];
 	u8 datalen;
 	u8 temp[SERVER_CMD_BUFLEN];
 	//1、读地址
 	memcpy(addr, &src[1], 6);
 	//2、计算长度
-	datalen = 0x1F + len;
+	datalen = 0x1F + *len;
 	//3、拼接指令
 	temp[0] = 0x68;
 	temp[1] = datalen;
@@ -80,12 +76,74 @@ void package645_to_3762_afn13f1(u8 *src, u8 len) {
 	memcpy(&temp[4], _13f1_msg, 12);
 	memcpy(&temp[16], addr, 6);
 	memcpy(&temp[22], _13f1_type, 6);
-	temp[28] = len;
-	memcpy(&temp[29], src, len);
+	temp[28] = *len;
+	memcpy(&temp[29], src, *len);
 	//4、计算校验
 	temp[datalen - 2] = get_cs(temp, datalen - 2);
 	temp[datalen - 1] = 0x16;
 	//5、存入buffer
 	memcpy(src, temp, datalen);
+	*len = datalen;
 }
 
+u8 package_to_servercmd(u8 *dst, u8 *src, u8 len3762) {
+	u8 len = 0;
+	u8 temp[SERVER_CMD_BUFLEN];
+	// 第一步，判断指令发送是主动上报还是被动回复
+	if (src[3] == 0x81) {// 被动回复
+		// 如果是被动回复，则指令只可能是控制指令或通讯指令
+		// 第二步，判断AFN码F码，如果是13f1则为通讯指令回复，如果是其他指令则为控制指令回复
+		len = AFN13_F1_recive(temp, src, len3762);
+		if (len != 0) {// 13F1指令，通讯指令
+			len = package645_to_servercmd(dst, temp, len);
+		} else {// 其他指令，控制指令
+			len = package3762_to_servercmd(dst, src, len3762, SERVER_CONTROL);
+		}
+	} else if (src[3] == 0xC1) {// 主动上报
+		// 如果是主动上报，则指令为主节点主动上报
+		len = package3762_to_servercmd(dst, src, len3762, SERVER_AUTOUPDATE);
+	}
+	
+	return len;
+}
+
+u8 package3762_to_servercmd(u8 *dst, u8 *src, u8 len3762, u8 cmdtype) {
+	u8 len;
+	len = len3762 + 7;
+	dst[0] = 0xFB;
+	dst[1] = 0xFB;
+	dst[2] = cmdtype;
+	dst[3] = len3762;
+	memcpy(&dst[4], src, len3762);
+	// 计算校验和
+	dst[len - 3] = get_cs(dst, len - 3);
+	dst[len - 2] = 0xFE;
+	dst[len - 1] = 0xFE;
+	
+	return len;
+}
+
+u8 package645_to_servercmd(u8 *dst, u8 *src, u8 len645) {
+	u8 len;
+	len = len645 + 7;
+	dst[0] = 0xFB;
+	dst[1] = 0xFB;
+	dst[2] = SERVER_COMMUNICAT;
+	dst[3] = len645;
+	memcpy(&dst[4], src, len645);
+	// 计算校验和
+	dst[len - 3] = get_cs(dst, len - 3);
+	dst[len - 2] = 0xFE;
+	dst[len - 1] = 0xFE;
+	
+	return len;
+}
+
+//u8 get_cs(u8 *src, u8 len) {
+//	u8 i = 0;
+//	u8 sum = 0;
+//	for (; i < len; i++) {
+//		sum += src[i];
+//	}
+//	return sum;
+//}

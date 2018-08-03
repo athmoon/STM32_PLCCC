@@ -25,11 +25,8 @@ extern u8 DMA_RX_BUF4[DMA_RX_BUFF_LEN];
 extern u8 DMA_TX_BUF4[DMA_TX_BUFF_LEN];
 extern USART_COM com1,com2,com3,com4;
 
-extern OS_EVENT * Com1_rx_sem;
 extern OS_EVENT * Com1_tx_sem;
-extern OS_EVENT * Com2_rx_sem;
 extern OS_EVENT * Com2_tx_sem;
-extern OS_EVENT * Com4_rx_sem;
 extern OS_EVENT * Com4_tx_sem;
 extern ServerCmd com2_cmd;
 void OSSem_init(void);
@@ -124,11 +121,8 @@ void start_task(void *pdata)
 }
 
 void OSSem_init(void) {
-	Com1_rx_sem = OSSemCreate(0);
 	Com1_tx_sem = OSSemCreate(0);
-	Com2_rx_sem = OSSemCreate(0);
 	Com2_tx_sem = OSSemCreate(0);
-	Com4_rx_sem = OSSemCreate(0);
 	Com4_tx_sem = OSSemCreate(0);
 	ServerCmd_init(&com2_cmd);
 }

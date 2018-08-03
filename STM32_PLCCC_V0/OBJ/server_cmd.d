@@ -27,3 +27,6 @@
 ..\obj\server_cmd.o: ..\STM32F10X_FWLIB\inc\stm32f10x_rtc.h
 ..\obj\server_cmd.o: ..\STM32F10X_FWLIB\inc\stm32f10x_usart.h
 ..\obj\server_cmd.o: ..\STM32F10X_FWLIB\inc\misc.h
+..\obj\server_cmd.o: _3762.h
+..\obj\server_cmd.o: ..\HARDWARE\flash\flash.h
+..\obj\server_cmd.o: ..\HARDWARE\def\def.h

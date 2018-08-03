@@ -143,6 +143,10 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>DLGUARM</Key>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>DLGDARM</Key>
           <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
@@ -176,34 +180,98 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>144</LineNumber>
+          <LineNumber>104</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134227720</Address>
+          <Address>134230314</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>\\.psf\Home\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\LogicTask.c</Filename>
+          <Filename>\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\server_cmd.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\test\/.psf/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/LogicTask.c\144</Expression>
+          <Expression>\\test\/Mac/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/server_cmd.c\104</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>189</LineNumber>
+          <LineNumber>97</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134227886</Address>
+          <Address>134230276</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>\\.psf\Home\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\.psf\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\LogicTask.c</Filename>
+          <Filename>\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\server_cmd.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\test\/.psf/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/LogicTask.c\189</Expression>
+          <Expression>\\test\/Mac/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/server_cmd.c\97</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>100</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230292</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\server_cmd.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test\/Mac/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/server_cmd.c\100</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>98</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230278</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\server_cmd.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test\/Mac/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/server_cmd.c\98</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>93</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230258</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\server_cmd.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test\/Mac/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/server_cmd.c\93</Expression>
+        </Bp>
+        <Bp>
+          <Number>5</Number>
+          <Type>0</Type>
+          <LineNumber>107</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230328</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\\Mac\Home\Documents\GitHub\STM32_PLCCC\STM32_PLCCC_V0\USER\server_cmd.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test\/Mac/Home/Documents/GitHub/STM32_PLCCC/STM32_PLCCC_V0/USER/server_cmd.c\107</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -393,7 +461,7 @@
 
   <Group>
     <GroupName>CORE</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

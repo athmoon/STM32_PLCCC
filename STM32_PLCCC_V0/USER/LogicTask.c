@@ -13,9 +13,10 @@
 #include "def.h"
 #include "plcmodule.h"
 #include "_3762.h"
+#include "server_cmd.h"
 
-#define PLCCmdTimeWait (5 * 100)
-#define AFN10F3TimeWait (10 * 100)
+#define PLCCmdTimeWait (5 * 1000)
+#define AFN10F3TimeWait (10 * 1000)
 
 typedef enum {
 	WorkStatus_Starting = 1,
@@ -41,11 +42,8 @@ ConfigStatus conf_status;
 extern calendar STM32_calendar;
 extern USART_COM com1,com2,com3,com4;
 
-OS_EVENT * Com1_rx_sem;
 OS_EVENT * Com1_tx_sem;
-OS_EVENT * Com2_rx_sem;
 OS_EVENT * Com2_tx_sem;
-OS_EVENT * Com4_rx_sem;
 OS_EVENT * Com4_tx_sem;
 
 WorkStatus workStatus = WorkStatus_Starting;
@@ -211,10 +209,8 @@ void Target1_task(void *pdata)
 				
 				break;
 			case WorkStatus_Idle://空闲状态
-				// 如果收到载波主节点上行帧，进行解析，如果是主动上行帧，进行回复；如果是被动上行帧，将结果返回给上位机
 				receive_msg_from_com4(DEV_TIMEOUT_10);
 				// 暂时使用串口2接受上位机信息。
-				// 如果收到上位机的指令，先进行解析，如果是对从节点的控制或查询指令，按照376.2透传转发指令，下发给载波主节点
 				receive_msg_from_com2(DEV_TIMEOUT_10);
 				break;
 			case WorkStatus_Reciving:
@@ -246,7 +242,7 @@ void device_test(void) {
 u8 receive_msg_from_com1(INT32U timeout) {
 	u8 err = 0;
 	
-	OSSemPend(Com1_rx_sem, timeout, &err);// 读取信号量
+	OSSemPend(com1.sem_DMA_RX, timeout, &err);// 读取信号量
 	if (err == OS_ERR_NONE) {
 		memcpy(com4.DMA_TX_BUF, com1.DMA_RX_BUF, com1.lenRec);// 将串口1接受缓冲区的数据拷贝到串口4的发送缓冲区
 		com4.lenSend = com1.lenRec;
@@ -259,19 +255,39 @@ u8 receive_msg_from_com1(INT32U timeout) {
 }
 
 // 返回1，接收数据成功，返回0，接收数据失败或数据为空
+// 接受串口2的数据
 u8 receive_msg_from_com2(INT32U timeout) {
 	u8 err = 0;
 	
-	OSSemPend(Com2_rx_sem, timeout, &err);// 读取信号量
+	OSSemPend(com2_cmd.sem_server_cmd, timeout, &err);// 读取信号量
 	if (err == OS_ERR_NONE) {
-		// 封包成376.2转发给主节点
-		com4.lenSend = AFN13_F1_translate_645(com4.DMA_TX_BUF, com2.DMA_RX_BUF, com2.lenRec);
+		
+		com4.lenSend = com2_cmd.datalen;
+		memcpy(com4.DMA_TX_BUF, com2_cmd.databuf, com2_cmd.datalen);
 		OSSemPost(Com4_tx_sem);// 发送消息给串口4，开始发送数据。
-		workStatus = WorkStatus_Reciving;
+//		workStatus = WorkStatus_Reciving;
+		
+		///////////////////////测试代码块///////////////////////
+//		com2.lenSend = com2_cmd.datalen;
+//		memcpy(com2.DMA_TX_BUF, com2_cmd.databuf, com2_cmd.datalen);
+//		OSSemPost(Com2_tx_sem);// 发送消息给串口4，开始发送数据。
+		///////////////////////测试代码块///////////////////////
+		
 		return 1;
 	} else {
 		return 0;
 	}
+	
+//	OSSemPend(Com2_rx_sem, timeout, &err);// 读取信号量
+//	if (err == OS_ERR_NONE) {
+//		// 封包成376.2转发给主节点
+//		com4.lenSend = AFN13_F1_translate_645(com4.DMA_TX_BUF, com2.DMA_RX_BUF, com2.lenRec);
+//		OSSemPost(Com4_tx_sem);// 发送消息给串口4，开始发送数据。
+//		workStatus = WorkStatus_Reciving;
+//		return 1;
+//	} else {
+//		return 0;
+//	}
 	
 }
 
@@ -279,9 +295,10 @@ u8 receive_msg_from_com2(INT32U timeout) {
 u8 receive_msg_from_com4(INT32U timeout) {
 	u8 err = 0;
 	
-	OSSemPend(Com4_rx_sem, timeout, &err);// 读取信号量
+	OSSemPend(com4.sem_DMA_RX, timeout, &err);// 读取信号量
 	if (err == OS_ERR_NONE) {
-			
+		com2.lenSend = package_to_servercmd(com2.DMA_TX_BUF, com4.DMA_RX_BUF, com4.lenRec);
+		OSSemPost(Com2_tx_sem);
 		return 1;
 	} else {
 		return 0;

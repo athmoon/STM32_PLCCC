@@ -1,0 +1,12 @@
+.\objects\sys.o: ..\SYSTEM\sys\sys.c
+.\objects\sys.o: ..\SYSTEM\sys\sys.h
+.\objects\sys.o: ..\CORE\stm32f10x.h
+.\objects\sys.o: ..\CORE\core_cm3.h
+.\objects\sys.o: e:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sys.o: ..\CORE\system_stm32f10x.h
+.\objects\sys.o: ..\CORE\stm32f10x_conf.h
+.\objects\sys.o: ..\STM32F10X_FWLIB\inc\stm32f10x_gpio.h
+.\objects\sys.o: ..\CORE\stm32f10x.h
+.\objects\sys.o: ..\STM32F10X_FWLIB\inc\stm32f10x_rcc.h
+.\objects\sys.o: ..\STM32F10X_FWLIB\inc\stm32f10x_usart.h
+.\objects\sys.o: ..\STM32F10X_FWLIB\inc\misc.h

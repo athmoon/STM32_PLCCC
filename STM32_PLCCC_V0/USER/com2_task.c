@@ -4,7 +4,6 @@
 #include "server_cmd.h"
 
 extern USART_COM com2;
-extern OS_EVENT * Com2_rx_sem;
 extern OS_EVENT * Com2_tx_sem;
 extern ServerCmd com2_cmd;
 
@@ -30,20 +29,19 @@ void Target4_task(void *pdata)
 					if (check_data_sum(com2.DMA_RX_BUF, com2.lenRec) != 0) {
 						// 解析数据
 						translate_to_serverCmd(&com2_cmd, com2.DMA_RX_BUF, com2.lenRec);
-						// 数据操作（判断是否需要转发给主节点或从节点）
+						// 第三步、数据操作（判断是否需要转发给主节点或从节点）
 						data_handle(&com2_cmd);
 					}
 				}
 			}
 		}
 		
-		// 第三步，将发送给串口2的指令送出
+		// 第三步， 等待回复并返回结果
 		OSSemPend(Com2_tx_sem, DEV_TIMEOUT_10,&err);
 		if(err == OS_ERR_NONE){
 			send_to_com2(com2.DMA_TX_BUF, com2.lenSend);
 		}
 		
-		// 第四步， 等待回复并返回结果
 	}
 }
 

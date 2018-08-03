@@ -5,7 +5,6 @@
 #include "usart.h"
 
 extern USART_COM com1;
-extern OS_EVENT * Com1_rx_sem;
 extern OS_EVENT * Com1_tx_sem;
 
 void send_to_com1(u8 *StrBuf, u8 strLen);
@@ -16,11 +15,6 @@ void Target2_task(void *pdata)
 	while(1)
 	{
 		OSTimeDlyHMSM(0, 0, 0, 1);
-		
-		OSSemPend(com1.sem_DMA_RX,DEV_TIMEOUT_10,&err);
-		if(err == OS_ERR_NONE){
-			OSSemPost(Com1_rx_sem);
-		}
 		
 		OSSemPend(Com1_tx_sem, DEV_TIMEOUT_10,&err);
 		if(err == OS_ERR_NONE){

@@ -18,6 +18,7 @@ void ServerCmd_init(ServerCmd *sc);
 #define SERVER_COMMUNICAT 		0x02
 #define SERVER_HEARTBEAT 			0x03
 #define SERVER_READMAC 				0x04
+#define SERVER_AUTOUPDATE			0x06
 
 extern ServerCmd com2_cmd;
 
@@ -26,7 +27,9 @@ u8 check_data_tail(u8 *src, u8 buf_len);
 u8 check_data_sum(u8 *src, u8 buf_len);
 void translate_to_serverCmd(ServerCmd *sc, u8 *data_src, u8 buf_len);
 void data_handle(ServerCmd *sc);
-void package645_to_3762_afn13f1(u8 *src, u8 len);
+void package645_to_3762_afn13f1(u8 *src, u8 *len);
+u8 package3762_to_servercmd(u8 *dst, u8 *src, u8 len3762, u8 cmdtype);
+u8 package_to_servercmd(u8 *dst, u8 *src, u8 len3762);
 
 #endif
 

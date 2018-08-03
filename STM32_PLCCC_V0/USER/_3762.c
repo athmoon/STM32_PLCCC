@@ -77,33 +77,33 @@ u8 AFN13_F1_recive(u8 *dst, u8 *src, u8 len_3762) {
 	return len;
 }
 	
-/// 376.2命令打包函数，将指令打包成字符串数据帧,第一个参数传入3762指令结构体，第二个参数传入缓存区地址，返回数据长度
-u8 pack_3762_str(_3762_CMD cmd, u8 *dst) {
-	switch(cmd.AFN_code) {
-		case AFN00:// 确认否认帧
-			switch(cmd.F_code) {
-				case F1:// 确认
-					memcpy(dst, AFN00_F1, 0x15);
-					return 0x15;
-				case F2:// 否认
-					break;
-				default:
-					break;
-			}
-			break;
-		case AFN03:
-			switch(cmd.F_code) {
-				case F10:// 路由运行模式
-					memcpy(dst, AFN03_F10, 0x0F);
-					break;
-			}
-			break;
-		default:
-			break;
-	}
-	
-	return 0;
-}
+// 376.2命令打包函数，将指令打包成字符串数据帧,第一个参数传入3762指令结构体，第二个参数传入缓存区地址，返回数据长度
+//u8 pack_3762_str(_3762_CMD cmd, u8 *dst) {
+//	switch(cmd.AFN_code) {
+//		case AFN00:// 确认否认帧
+//			switch(cmd.F_code) {
+//				case F1:// 确认
+//					memcpy(dst, AFN00_F1, 0x15);
+//					return 0x15;
+//				case F2:// 否认
+//					break;
+//				default:
+//					break;
+//			}
+//			break;
+//		case AFN03:
+//			switch(cmd.F_code) {
+//				case F10:// 路由运行模式
+//					memcpy(dst, AFN03_F10, 0x0F);
+//					break;
+//			}
+//			break;
+//		default:
+//			break;
+//	}
+//	
+//	return 0;
+//}
 
 /// 376.2协议解析函数,未出错返回0，出错了返回错误码
 u8 read_3762_str(u8 *src_str, u8 src_len) {
@@ -179,7 +179,7 @@ u8 read_3762_str(u8 *src_str, u8 src_len) {
 						AFN03_F10_data_translate(&src_str[13]);//数据解析
 						if (memcmp((u8 *)&mNode, (u8 *)&memory_data, 46) == 0) {//信息完全相同
 							readResult.action = Null_Action;
-						} else {//新的主节点，或者疾控器首次连接主节点，flash是FFFF
+						} else {//新的主节点，或者集控器首次连接主节点，flash是FFFF
 							readResult.action = Hardware_Init;// 进行硬件初始化
 							//将新的主节点信息存入flash。
 							STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)&mNode,23);

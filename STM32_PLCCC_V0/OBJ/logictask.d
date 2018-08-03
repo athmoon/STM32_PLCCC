@@ -39,3 +39,4 @@
 ..\obj\logictask.o: ..\HARDWARE\def\def.h
 ..\obj\logictask.o: ..\HARDWARE\PLCmodule\plcmodule.h
 ..\obj\logictask.o: _3762.h
+..\obj\logictask.o: server_cmd.h
